@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bonteeth - Dental Solutions</title>
+</head>
+<body>
+
+    <h1>Appointments</h1>
+    <h2>Currently these are all the appointments bookings for the near future:</h2>
+
+    {% for appointment in appointments %}
+
+        <p><em>Created by:</em> {{ appointment.created_by }}</p>
+        <p><em>Created on:</em> {{ appointment.created_on }}</p>
+        <p><em>Reason for visit:</em> {{ appointment.reason_for_visit }}</p>
+        <p><em>Requested date:</em> {{ appointment.requested_date }}</p>
+        <p><em>Additional information:</em> {{ appointment.additional_information }}</p>
+        <p><em>Status:</em> {{ appointment.status }}</p>
+
+    {% endfor %}
+
+</body>
+</html>
