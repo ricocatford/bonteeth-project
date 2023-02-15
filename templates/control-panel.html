@@ -8,21 +8,44 @@
                 Welcome <span class="username">{{ username }}</span>
             </h3>
         </div>
-        <!--    Image wrapper    -->
-        <div class="col s12 center-align">
-            <img src="{{ url_for('static',filename='images/smiling_tooth.jpg') }}">
-        </div>
+<!--        &lt;!&ndash;    Image wrapper    &ndash;&gt;-->
+<!--        <div class="col s12 center-align">-->
+<!--            <img src="{{ url_for('static',filename='images/smiling_tooth.jpg') }}">-->
+<!--        </div>-->
     </div>
     <div class="row">
         <div class="col s12 m4">
             <div class="card">
                 <div class="card-image">
-                    <img src="{{ url_for('static',filename='images/smiling_tooth.jpg') }}">
-                    <span class="card-title">Card Title</span>
+                    <img src="{{ url_for('static',filename='images/profile.jpg') }}">
+                    <span class="card-title">My Profile</span>
                 </div>
                 <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
-                        require little markup to use effectively.</p>
+                    <p>You can view and edit your profile information.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card">
+                <a href="#">
+                    <div class="card-image">
+                        <img src="{{ url_for('static',filename='images/dentist.jpg') }}">
+                        <span class="card-title black-text">Book an Appointment</span>
+                    </div>
+                    <div class="card-content">
+                        <p class="black-text">Fill up the form and come visit us!</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ url_for('static',filename='images/toothbrush.jpg') }}">
+                    <span class="card-title black-text">Manage Appointments</span>
+                </div>
+                <div class="card-content">
+                    <p>Here you can view and edit your profile.</p>
                 </div>
             </div>
         </div>
