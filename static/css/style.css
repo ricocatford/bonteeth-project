@@ -11,5 +11,18 @@ body {
 }
 
 .brand-logo {
-    margin-left: .5em;
+    margin-left: .5rem;
+}
+
+.sidenav-slogan {
+    font-size: 1.25em;
+    margin-top: .15rem;
+}
+
+.block-container {
+    min-height: 70vh;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
 }

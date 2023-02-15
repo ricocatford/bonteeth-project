@@ -20,27 +20,27 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
                 <li>
-                    <a href="#" class="center-align">
+                    <a href="{{ url_for('home') }}" class="center-align text-uppercase">
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="center-align">
+                    <a href="#" class="center-align text-uppercase">
                         About Us
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="center-align">
+                    <a href="#" class="center-align text-uppercase">
                         Contact Us
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url_for('manage_appointments') }}" class="center-align">
+                    <a href="{{ url_for('manage_appointments') }}" class="center-align text-uppercase">
                         Book an Appointment
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="center-align">
+                    <a href="#" class="center-align text-uppercase">
                         Log In
                     </a>
                 </li>
@@ -51,35 +51,35 @@
     <!--    Mobile navbar    -->
     <ul class="sidenav" id="mobile-demo">
         <li>
-            <h4 class="center-align blue-grey-text text-darken-1">
+            <h4 class="center-align deep-purple-text text-darken-1">
                 BonTeeth
             </h4>
-            <h5 class="center-align blue-grey-text text-darken-5 sidenav-slogan">
+            <h5 class="center-align deep-purple-text text-darken-5 sidenav-slogan">
                 Dental Solutions
             </h5>
         </li>
         <li>
-            <a href="#" class="center-align">
+            <a href="{{ url_for('home') }}" class="center-align text-uppercase">
                 Home
             </a>
         </li>
         <li>
-            <a href="#" class="center-align">
+            <a href="#" class="center-align text-uppercase">
                 About Us
             </a>
         </li>
         <li>
-            <a href="#" class="center-align">
+            <a href="#" class="center-align text-uppercase">
                 Contact Us
             </a>
         </li>
         <li>
-            <a href="{{ url_for('manage_appointments') }}" class="center-align">
+            <a href="{{ url_for('manage_appointments') }}" class="center-align text-uppercase">
                 Book an Appointment
             </a>
         </li>
         <li>
-            <a href="#" class="center-align">
+            <a href="#" class="center-align text-uppercase">
                 Log In
             </a>
         </li>
@@ -100,7 +100,7 @@
     {% endwith %}
 </section>
 
-<main class="container">
+<main class="container block-container">
     <!--    Main block content    -->
     {% block content %}
     {% endblock %}
@@ -112,24 +112,56 @@
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">Sitemap</h5>
-                <p class="text-lighten-2">You can use rows and columns here to organize your footer
-                    content.</p>
+                <p class="text-lighten-2">There will be site links here for better navigation and accessibility.</p>
             </div>
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Opening Hours</h5>
                 <ul>
-                    <li><a class="white-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="white-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="white-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="white-text text-lighten-3" href="#!">Link 4</a></li>
+                    <li>
+                        <a class="white-text text-lighten-3" href="#!">
+                            Monday: 9.00am - 8.00pm
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text text-lighten-3" href="#!">
+                            Tuesday	9.00am - 5.00pm
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text text-lighten-3" href="#!">
+                            Wednesday: 9.00am - 5.00pm
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text text-lighten-3" href="#!">
+                            Thursday: 9.00am - 5.00pm
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text text-lighten-3" href="#!">
+                            Friday: 9.00am - 5.00pm
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text text-lighten-3" href="#!">
+                            Saturday: 9.00am - 3.00pm
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text text-lighten-3" href="#!">
+                            Sunday: Closed
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
         <div class="container">
-            © 2014 Copyright Text
-            <i class="fa-solid fa-user-plus right"></i>
+            © 2023 BonTeeth
+            <i class="fa-brands fa-facebook right"></i>
+            <i class="fa-brands fa-instagram right"></i>
+            <i class="fa-brands fa-twitter right"></i>
         </div>
     </div>
 </footer>
