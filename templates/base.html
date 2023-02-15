@@ -15,8 +15,8 @@
 <header>
     <!--    Top navbar    -->
     <nav>
-        <div class="nav-wrapper blue-grey lighten-3">
-            <a href="#!" class="brand-logo">Task Manager</a>
+        <div class="nav-wrapper deep-purple">
+            <a href="#!" class="brand-logo">BonTeeth</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
                 <li>
@@ -85,9 +85,54 @@
         </li>
     </ul>
 </header>
+<section>
+    <!--    Flash messages    -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="row flashes">
+        <h4 class="deep-purple accent-4 center-align">
+            {{ message }}
+        </h4>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</section>
 
-{% block content %}
-{% endblock %}
+<main class="container">
+    <!--    Main block content    -->
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+<footer class="page-footer deep-purple accent-1">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Sitemap</h5>
+                <p class="text-lighten-2">You can use rows and columns here to organize your footer
+                    content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Opening Hours</h5>
+                <ul>
+                    <li><a class="white-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="white-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="white-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="white-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2014 Copyright Text
+            <i class="fa-solid fa-user-plus right"></i>
+        </div>
+    </div>
+</footer>
 
 <script
         src="https://code.jquery.com/jquery-3.6.3.min.js"
