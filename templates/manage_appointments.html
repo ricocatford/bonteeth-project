@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1 class="center-align blue-grey-text">Appointments</h1>
+    <h2>Currently these are all the appointments bookings for the near future:</h2>
+
+    {% for appointment in appointments %}
+
+        <p><em>Created by:</em> {{ appointment.created_by }}</p>
+        <p><em>Created on:</em> {{ appointment.created_on }}</p>
+        <p><em>Reason for visit:</em> {{ appointment.reason_for_visit }}</p>
+        <p><em>Requested date:</em> {{ appointment.requested_date }}</p>
+        <p><em>Additional information:</em> {{ appointment.additional_information }}</p>
+        <p><em>Status:</em> {{ appointment.status }}</p>
+
+    {% endfor %}
+
+{% endblock %}
+

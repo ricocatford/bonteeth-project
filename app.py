@@ -16,10 +16,14 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+def home():
+    return render_template("index.html")
+
+
 @app.route("/get_appointments")
-def get_appointments():
+def manage_appointments():
     appointments = mongo.db.appointments.find()
-    return render_template("base.html", appointments=appointments)
+    return render_template("manage_appointments.html", appointments=appointments)
 
 
 if __name__ == "__main__":
