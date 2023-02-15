@@ -2,63 +2,81 @@
 
 {% block content %}
 
-<div class="row">
-    <!--    Page headings    -->
-    <div class="col s12 m10 offset-m1">
-        <h3 class="center-align grey-text text-darken-3">
-            Appointments
-        </h3>
+    <div class="row">
+        <!--    Page headings    -->
+        <div class="col s12 m10 offset-m1">
+            <h3 class="center-align grey-text text-darken-3">
+                Appointments
+            </h3>
+        </div>
     </div>
-</div>
+
+
+{% if session.user == "admin" %}
 
 <ul class="collapsible">
 
-    {% if username == "admin" %}
+    {% for appointment in appointments %}
 
-        {% for appointment in appointments %}
+    <li>
+        <div class="collapsible-header display-flex justify-space-between">
+            <i class="pink-text fa-solid fa-calendar-check"></i>
+            <p class="appointment-reason">{{ appointment.reason_for_visit }}</p>
+            <span class="username ">by: {{ appointment.created_by }}</span>
+        </div>
+        <div class="collapsible-body">
+            <span class="grey-text text-darken-1">Status: {{ appointment.status }}</span>
+            <span class="grey-text text-darken-1 right">Created on: {{ appointment.created_on }}</span>
+            <p class="grey-text text-darken-3 appointment-info">{{ appointment.additional_information }}</p>
+            <span class="grey-text text-darken-4">Requested date: {{ appointment.requested_date }}</span>
+        </div>
+    </li>
 
-            <li>
-                <div class="collapsible-header display-flex justify-space-between">
-                    <i class="pink-text fa-solid fa-calendar-check"></i>
-                    <p class="appointment-reason">{{ appointment.reason_for_visit }}</p>
-                    <span class="username ">by: {{ appointment.created_by }}</span>
-                </div>
-                <div class="collapsible-body">
-                    <span class="grey-text text-darken-1">Status: {{ appointment.status }}</span>
-                    <span class="grey-text text-darken-1 right">Created on: {{ appointment.created_on }}</span>
-                    <p class="grey-text text-darken-3 appointment-info">{{ appointment.additional_information }}</p>
-                    <span class="grey-text text-darken-4">Requested date: {{ appointment.requested_date }}</span>
-                </div>
-            </li>
+    {% endfor %}
 
-        {% endfor %}
-
-    {% else %}
-
-        {% for appointment in appointments %}
-
-            {% if session.user == appointment.created_by %}
-
-                <li>
-                    <div class="collapsible-header display-flex justify-space-between">
-                        <i class="pink-text fa-solid fa-calendar-check"></i>
-                        <p class="appointment-reason">{{ appointment.reason_for_visit }}</p>
-                        <span class="username ">by: {{ appointment.created_by }}</span>
-                    </div>
-                    <div class="collapsible-body">
-                        <span class="grey-text text-darken-1">Status: {{ appointment.status }}</span>
-                        <span class="grey-text text-darken-1 right">Created on: {{ appointment.created_on }}</span>
-                        <p class="grey-text text-darken-3 appointment-info">{{ appointment.additional_information }}</p>
-                        <span class="grey-text text-darken-4">Requested date: {{ appointment.requested_date }}</span>
-                    </div>
-                </li>
-
-            {% endif %}
-
-        {% endfor %}
-
-    {% endif %}
 </ul>
+
+{% elif session.user != "admin" %}
+
+<ul class="collapsible">
+
+    {% for appointment in appointments %}
+
+        {% if session.user == appointment.created_by %}
+
+        <li>
+            <div class="collapsible-header display-flex justify-space-between">
+                <i class="pink-text fa-solid fa-calendar-check"></i>
+                <p class="appointment-reason">
+                    {{ appointment.reason_for_visit }}
+                </p>
+                <span class="username">
+                    by: {{ appointment.created_by }}
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <span class="grey-text text-darken-1">
+                    Status: {{ appointment.status }}
+                </span>
+                <span class="grey-text text-darken-1 right">
+                    Created on: {{ appointment.created_on }}
+                </span>
+                <p class="grey-text text-darken-3 appointment-info">
+                    {{ appointment.additional_information }}
+                </p>
+                <span class="grey-text text-darken-4">
+                    Requested date: {{ appointment.requested_date }}
+                </span>
+            </div>
+        </li>
+
+        {% endif %}
+
+    {% endfor %}
+
+</ul>
+
+{% endif %}
 
 {% endblock %}
 

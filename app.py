@@ -1,4 +1,6 @@
 import os
+from datetime import datetime
+
 from flask import Flask, flash, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -18,6 +20,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
+
     return render_template("index.html")
 
 
@@ -85,6 +88,11 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+def format_date(datetime_string):
+    formatted_datetime = datetime.strptime(datetime_string, '%Y-%m-%d')
+    return formatted_datetime.strftime("%d %B, %Y")
+
+
 @app.route("/appointments")
 def appointments():
     username = mongo.db.users.find_one(
@@ -92,8 +100,20 @@ def appointments():
 
     appointments = list(mongo.db.appointments.find())
 
-    return render_template("appointments.html", username=username, appointments=appointments)
+    formatted_appointments = []
+    # datetime.now()
+    for appointment in appointments:
+        formatted_appointment = appointment
+        formatted_appointment["created_on"] = format_date(formatted_appointment["created_on"])
+        formatted_appointment["requested_date"] = format_date(formatted_appointment["requested_date"])
+        formatted_appointments.append(formatted_appointment)
 
+    return render_template("appointments.html", username=username, appointments=formatted_appointments)
+
+
+@app.route("/book-appointment")
+def book_appointment():
+    return render_template("book-appointment.html")
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

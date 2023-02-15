@@ -3,7 +3,7 @@ $(document).ready(function(){
     $(".tooltipped").tooltip();
     $(".collapsible").collapsible();
     $(".datepicker").datepicker({
-        format: "dd mmmm, yyyy",
+        format: "yyyy-mm-dd",
         disableWeekends: true,
         showClearBtn: true,
         i18n: {

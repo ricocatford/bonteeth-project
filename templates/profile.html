@@ -23,7 +23,7 @@
         </div>
         <div class="col s12 m4">
             <div class="card">
-                <a href="#">
+                <a href="{{ url_for('book_appointment') }}">
                     <div class="card-image">
                         <img src="{{ url_for('static',filename='images/dentist.jpg') }}">
                         <span class="card-title black-text">Book an Appointment</span>
@@ -36,13 +36,15 @@
         </div>
         <div class="col s12 m4">
             <div class="card">
-                <div class="card-image">
-                    <img src="{{ url_for('static',filename='images/toothbrush.jpg') }}">
-                    <span class="card-title black-text">Manage Appointments</span>
-                </div>
-                <div class="card-content">
-                    <p>Here you can view and edit your profile.</p>
-                </div>
+                <a href="{{ url_for('appointments') }}">
+                    <div class="card-image">
+                        <img src="{{ url_for('static',filename='images/toothbrush.jpg') }}">
+                        <span class="card-title black-text">Manage Appointments</span>
+                    </div>
+                    <div class="card-content">
+                        <p class="black-text">Edit, cancel or check status for your appointments.</p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
