@@ -26,11 +26,6 @@
                 </li>
                 <li>
                     <a href="#" class="center-align text-uppercase">
-                        Why Choose Us
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="center-align text-uppercase">
                         Contact Us
                     </a>
                 </li>
@@ -39,11 +34,24 @@
                         Book an Appointment
                     </a>
                 </li>
+                {% if session.user %}
+                <li>
+                    <a href="{{ url_for('profile', username=session['user']) }}" class="center-align text-uppercase">
+                        Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('logout') }}" class="center-align text-uppercase">
+                        Log Out
+                    </a>
+                </li>
+                {% else %}
                 <li>
                     <a href="{{ url_for('login') }}" class="center-align text-uppercase">
                         Log In
                     </a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
@@ -59,16 +67,6 @@
             </h5>
         </li>
         <li>
-            <a href="{{ url_for('home') }}" class="center-align text-uppercase">
-                Home
-            </a>
-        </li>
-        <li>
-            <a href="#" class="center-align text-uppercase">
-                Why Choose Us
-            </a>
-        </li>
-        <li>
             <a href="#" class="center-align text-uppercase">
                 Contact Us
             </a>
@@ -78,11 +76,24 @@
                 Book an Appointment
             </a>
         </li>
+        {% if session.user %}
+        <li>
+            <a href="{{ url_for('profile', username=session['user']) }}" class="center-align text-uppercase">
+                Profile
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('logout') }}" class="center-align text-uppercase">
+                Log Out
+            </a>
+        </li>
+        {% else %}
         <li>
             <a href="{{ url_for('login') }}" class="center-align text-uppercase">
                 Log In
             </a>
         </li>
+        {% endif %}
     </ul>
 </header>
 <section>
@@ -91,7 +102,7 @@
     {% if messages %}
     {% for message in messages %}
     <div class="row flashes">
-        <div class="col s12 l8 offset-l2 card-panel deep-purple lighten-2">
+        <div class="col s12 l8 offset-l2 card-panel pink lighten-2">
             <h5 class="white-text center-align">
                 {{ message }}
             </h5>
@@ -116,25 +127,15 @@
                 <h5 class="white-text">Sitemap</h5>
                 <ul>
                     <li>
-                    <a href="#" class="white-text">
-                        Why Choose Us
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="white-text">
-                        Contact Us
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="white-text">
-                        Book an Appointment
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url_for('login') }}" class="white-text">
-                        Log In
-                    </a>
-                </li>
+                        <a href="#" class="white-text">
+                            Contact Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="white-text">
+                            Book an Appointment
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="col l4 offset-l2 s12 m8">
