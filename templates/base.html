@@ -29,12 +29,12 @@
                         Contact Us
                     </a>
                 </li>
+                {% if session.user %}
                 <li>
-                    <a href="#" class="center-align text-uppercase">
-                        Book an Appointment
+                    <a href="{{ url_for('appointments') }}" class="center-align text-uppercase">
+                        Appointments
                     </a>
                 </li>
-                {% if session.user %}
                 <li>
                     <a href="{{ url_for('profile', username=session['user']) }}" class="center-align text-uppercase">
                         Profile
@@ -46,6 +46,11 @@
                     </a>
                 </li>
                 {% else %}
+                <li>
+                    <a href="#" class="center-align text-uppercase">
+                        Book an Appointment
+                    </a>
+                </li>
                 <li>
                     <a href="{{ url_for('login') }}" class="center-align text-uppercase">
                         Log In
@@ -71,12 +76,12 @@
                 Contact Us
             </a>
         </li>
+        {% if session.user %}
         <li>
-            <a href="#" class="center-align text-uppercase">
-                Book an Appointment
+            <a href="{{ url_for('appointments') }}" class="center-align text-uppercase">
+                Appointments
             </a>
         </li>
-        {% if session.user %}
         <li>
             <a href="{{ url_for('profile', username=session['user']) }}" class="center-align text-uppercase">
                 Profile
@@ -88,6 +93,11 @@
             </a>
         </li>
         {% else %}
+        <li>
+            <a href="#" class="center-align text-uppercase">
+                Book an Appointment
+            </a>
+        </li>
         <li>
             <a href="{{ url_for('login') }}" class="center-align text-uppercase">
                 Log In

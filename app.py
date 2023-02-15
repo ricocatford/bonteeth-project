@@ -85,6 +85,16 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+@app.route("/appointments")
+def appointments():
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    appointments = list(mongo.db.appointments.find())
+
+    return render_template("appointments.html", username=username, appointments=appointments)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

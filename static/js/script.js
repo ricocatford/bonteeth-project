@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $(".sidenav").sidenav({edge: "right"});
     $(".tooltipped").tooltip();
+    $(".collapsible").collapsible();
     $(".datepicker").datepicker({
         format: "dd mmmm, yyyy",
         disableWeekends: true,

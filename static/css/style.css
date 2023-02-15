@@ -35,12 +35,21 @@ img {
     text-transform: uppercase;
 }
 
+.hero-container {
+    min-height: 50vh;
+}
+
 .username {
     text-transform: capitalize;
 }
 
-.welcome {
-    margin-bottom: 0;
+.appointment-reason {
+    font-size: 1.15em;
+}
+
+.appointment-info {
+    margin: 1rem 0;
+    font-size: 1.5em;
 }
 
 .footer-social-icon {
