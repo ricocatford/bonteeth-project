@@ -56,8 +56,7 @@ def login():
         if existing_user:
             if check_password_hash(existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username")
-                flash(f"Welcome {request.form.get('username')}")
-                return redirect(url_for("manage_appointments"))
+                return redirect(url_for("control_panel"))
 
             else:
                 flash("Incorrect username and/or password.")
@@ -66,10 +65,11 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/get_appointments")
-def manage_appointments():
-    appointments = mongo.db.appointments.find()
-    return render_template("manage_appointments.html", appointments=appointments)
+@app.route("/control-panel")
+def control_panel():
+    username = session["user"]
+
+    return render_template("control-panel.html" , username=username)
 
 
 if __name__ == "__main__":

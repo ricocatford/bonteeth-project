@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="row">
+        <!--    Page headings    -->
+        <div class="col s12 m10 offset-m1">
+            <h3 class="center-align grey-text text-darken-3 lighten-4 welcome">
+                Welcome <span class="username">{{ username }}</span>
+            </h3>
+        </div>
+        <!--    Image wrapper    -->
+        <div class="col s12 center-align">
+            <img src="{{ url_for('static',filename='images/smiling_tooth.jpg') }}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ url_for('static',filename='images/smiling_tooth.jpg') }}">
+                    <span class="card-title">Card Title</span>
+                </div>
+                <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
+                        require little markup to use effectively.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
