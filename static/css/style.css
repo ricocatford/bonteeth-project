@@ -23,6 +23,18 @@ body {
     min-height: 70vh;
 }
 
+.display-flex {
+    display: flex;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
 .text-uppercase {
     text-transform: uppercase;
+}
+
+.footer-social-icon {
+    font-size: 1.5em;
 }
