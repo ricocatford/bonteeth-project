@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+from datetime import datetime, date
 
 from flask import Flask, flash, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
@@ -89,7 +89,7 @@ def profile(username):
 
 
 def format_date(datetime_string):
-    formatted_datetime = datetime.strptime(datetime_string, '%Y-%m-%d')
+    formatted_datetime = datetime.strptime(datetime_string, "%Y-%m-%d")
     return formatted_datetime.strftime("%d %B, %Y")
 
 
@@ -101,7 +101,7 @@ def appointments():
     appointments = list(mongo.db.appointments.find())
 
     formatted_appointments = []
-    # datetime.now()
+
     for appointment in appointments:
         formatted_appointment = appointment
         formatted_appointment["created_on"] = format_date(formatted_appointment["created_on"])
@@ -111,26 +111,25 @@ def appointments():
     return render_template("appointments.html", username=username, appointments=formatted_appointments)
 
 
-@app.route("/test")
-def test():
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    appointments = list(mongo.db.appointments.find())
-
-    formatted_appointments = []
-    # datetime.now()
-    for appointment in appointments:
-        formatted_appointment = appointment
-        formatted_appointment["created_on"] = format_date(formatted_appointment["created_on"])
-        formatted_appointment["requested_date"] = format_date(formatted_appointment["requested_date"])
-        formatted_appointments.append(formatted_appointment)
-
-    return render_template("test.html", username=username, appointments=formatted_appointments)
-
-
-@app.route("/book-appointment")
+@app.route("/book-appointment", methods=["GET", "POST"])
 def book_appointment():
+    if request.method == "POST":
+
+        today = date.today()
+        formatted_today = today.strftime("%Y-%m-%d")
+
+        appointment = {
+            "created_by": session["user"],
+            "created_on": formatted_today,
+            "reason_for_visit": "Hard coded lmao",
+            "requested_date": "2023-02-18",
+            "additional_information": "Another hard coded line",
+            "status": "Pending"
+        }
+
+        mongo.db.appointments.insert_one(appointment)
+        flash("Appointment booking successfully submitted!")
+
     return render_template("book-appointment.html")
 
 if __name__ == "__main__":
