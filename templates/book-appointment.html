@@ -18,10 +18,12 @@
                     <i class="fa-solid fa-magnifying-glass prefix"></i>
                     <select id="reason_for_visit"
                             name="reason_for_visit"
+                            class="validate"
                             required>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <option value="Other reason" selected>Other reason</option>
+                        {% for reason in reasons %}
+                            <option value="{{ reason.reason }}">{{ reason.reason }}</option>
+                        {% endfor %}
                     </select>
                     <label for="reason_for_visit">
                         Reason for visit

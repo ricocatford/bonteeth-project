@@ -113,24 +113,28 @@ def appointments():
 
 @app.route("/book-appointment", methods=["GET", "POST"])
 def book_appointment():
+    reasons = mongo.db.reason_for_visit.find().sort("reason", 1)
+
     if request.method == "POST":
 
         today = date.today()
-        formatted_today = today.strftime("%Y-%m-%d")
+        current_date = today.strftime("%Y-%m-%d")
 
         appointment = {
             "created_by": session["user"],
-            "created_on": formatted_today,
-            "reason_for_visit": "Hard coded lmao",
-            "requested_date": "2023-02-18",
-            "additional_information": "Another hard coded line",
+            "created_on": current_date,
+            "reason_for_visit": request.form.get("reason_for_visit"),
+            "requested_date": request.form.get("requested_date"),
+            "requested_time": request.form.get("requested_time"),
+            "additional_information": request.form.get("additional_information"),
             "status": "Pending"
         }
 
         mongo.db.appointments.insert_one(appointment)
-        flash("Appointment booking successfully submitted!")
+        flash("Appointment booked successfully! Please wait for us to review and proceed")
+        return redirect(url_for("appointments"))
 
-    return render_template("book-appointment.html")
+    return render_template("book-appointment.html", reasons=reasons)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
