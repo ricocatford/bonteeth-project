@@ -148,7 +148,8 @@ def edit_appointment(appointment_id):
         }
 
         mongo.db.appointments.update_one({"_id": ObjectId(appointment_id)}, {"$set": edited_appointment})
-        flash("Task Successfully Updated")
+        flash("Appointment successfully updated")
+        return redirect(url_for("appointments"))
 
     appointment = mongo.db.appointments.find_one({"_id": ObjectId(appointment_id)})
     reasons = mongo.db.reason_for_visit.find().sort("reason", 1)
