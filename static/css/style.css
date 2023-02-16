@@ -65,8 +65,14 @@ img {
 }
 
 .appointment-info {
-    margin: 1rem 0;
+    margin-bottom: 2rem;
     font-size: 1.5em;
+}
+
+.divider {
+  content: "";
+  margin: 1.5rem 0 2rem;
+  display: block;
 }
 
 .footer-social-icon {
