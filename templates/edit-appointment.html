@@ -17,9 +17,12 @@
                             name="reason_for_visit"
                             class="validate"
                             required>
-                        <option value="Other reason" selected>Other reason</option>
                         {% for reason in reasons %}
-                            <option value="{{ reason.reason }}">{{ reason.reason }}</option>
+                            {% if reason.reason == appointment.reason_for_visit %}
+                                <option value="{{ reason.reason }}" selected>{{ reason.reason }}</option>
+                            {% else %}
+                                <option value="{{ reason.reason }}">{{ reason.reason }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                     <label for="reason_for_visit">
@@ -30,6 +33,7 @@
                     <i class="fa-solid fa-calendar-days prefix"></i>
                     <input id="requested_date"
                            name="requested_date"
+                           value="{{ appointment.requested_date }}"
                            type="text"
                            class="datepicker validate"
                            required>
@@ -41,6 +45,7 @@
                     <i class="fa-solid fa-clock prefix"></i>
                     <input id="requested_time"
                            name="requested_time"
+                           value="{{ appointment.requested_time }}"
                            type="text"
                            class="timepicker validate"
                            required>
@@ -56,6 +61,7 @@
                               name="additional_information"
                               class="materialize-textarea validate"
                               maxlength="400">
+                        {{- appointment.additional_information -}}
                     </textarea>
                     <label for="additional_information">
                         Additional information
@@ -64,8 +70,12 @@
             </div>
             <div class="row">
                 <div class="col s12 center-align">
+                    <a href="{{ url_for('appointments') }}"
+                       class="col s12 m3 offset-m2 waves-effect waves-light btn-large red darken-4">
+                        Cancel
+                    </a>
                     <button type="submit"
-                            class="col s12 m4 offset-m4 waves-effect waves-light btn-large deep-purple darken-4">
+                            class="col s12 m3 offset-m2 waves-effect waves-light btn-large deep-purple darken-4">
                         Edit
                     </button>
                 </div>

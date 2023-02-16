@@ -20,7 +20,6 @@
                             name="reason_for_visit"
                             class="validate"
                             required>
-                        <option value="Other reason" selected>Other reason</option>
                         {% for reason in reasons %}
                             <option value="{{ reason.reason }}">{{ reason.reason }}</option>
                         {% endfor %}
@@ -58,8 +57,7 @@
                     <textarea id="additional_information"
                               name="additional_information"
                               class="materialize-textarea validate"
-                              maxlength="400">
-                    </textarea>
+                              maxlength="400"></textarea>
                     <label for="additional_information">
                         Additional information
                     </label>

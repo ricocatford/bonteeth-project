@@ -15,7 +15,7 @@
         </div>
     </div>
 {% endif %}
-{% if session.user == "admin" %}
+{% if session.user|lower == "admin" %}
     <ul class="collapsible">
         {% for appointment in appointments %}
             <li>
@@ -54,7 +54,7 @@
 {% elif session.user != "admin" %}
     <ul class="collapsible">
         {% for appointment in appointments %}
-            {% if session.user == appointment.created_by %}
+            {% if session.user|lower == appointment.created_by|lower %}
                 <li>
                     <div class="collapsible-header display-flex justify-space-between">
                         <i class="deep-purple-text text-darken-4 fa-solid fa-tooth"></i>

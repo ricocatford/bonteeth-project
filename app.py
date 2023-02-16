@@ -138,6 +138,18 @@ def book_appointment():
 
 @app.route("/edit-appointment/<appointment_id>", methods=["GET", "POST"])
 def edit_appointment(appointment_id):
+    if request.method == "POST":
+
+        edited_appointment = {
+            "reason_for_visit": request.form.get("reason_for_visit"),
+            "requested_date": request.form.get("requested_date"),
+            "requested_time": request.form.get("requested_time"),
+            "additional_information": request.form.get("additional_information"),
+        }
+
+        mongo.db.appointments.update_one({"_id": ObjectId(appointment_id)}, {"$set": edited_appointment})
+        flash("Task Successfully Updated")
+
     appointment = mongo.db.appointments.find_one({"_id": ObjectId(appointment_id)})
     reasons = mongo.db.reason_for_visit.find().sort("reason", 1)
     return render_template("edit-appointment.html", appointment=appointment, reasons=reasons)
