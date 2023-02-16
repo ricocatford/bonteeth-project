@@ -12,4 +12,7 @@ $(document).ready(function(){
             done: "Select"
         }
     });
+    $(".timepicker").timepicker({
+        twelveHour: false
+    });
 });

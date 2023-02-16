@@ -14,16 +14,20 @@
     <div class="row">
         <form class="col s12" method="POST" action="">
             <div class="row">
-                <div class="input-field col s12 m6">
+                <div class="input-field col s12 m4">
                     <i class="fa-solid fa-magnifying-glass prefix"></i>
-                    <select required>
+                    <select id="reason_for_visit"
+                            name="reason_for_visit"
+                            required>
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
                     </select>
-                    <label>Reason for visit</label>
+                    <label for="reason_for_visit">
+                        Reason for visit
+                    </label>
                 </div>
-                <div class="input-field col s12 m6">
+                <div class="input-field col s12 m4">
                     <i class="fa-solid fa-calendar-days prefix"></i>
                     <input id="requested_date"
                            name="requested_date"
@@ -31,7 +35,18 @@
                            class="datepicker validate"
                            required>
                     <label for="requested_date">
-                        Date request
+                        Date
+                    </label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="fa-solid fa-clock prefix"></i>
+                    <input id="requested_time"
+                           name="requested_time"
+                           type="text"
+                           class="timepicker validate"
+                           required>
+                    <label for="requested_time">
+                        Time
                     </label>
                 </div>
             </div>
