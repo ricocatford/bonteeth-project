@@ -35,8 +35,25 @@ img {
     text-transform: uppercase;
 }
 
-.hero-container {
-    min-height: 50vh;
+.text-pink-shadow {
+    text-shadow: 0 0 1em #e91e63, 0 0 0.2em #e91e63;
+}
+
+.flow-text {
+    margin-bottom: 2rem;
+}
+
+.grow {
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover,
+.grow:focus {
+    transform: scale(1.05);
+}
+
+.block-container {
+    min-height: 70vh;
 }
 
 .username {

@@ -6,7 +6,7 @@
             <h3 class="center-align grey-text text-darken-3">
                 Book an Appointment
             </h3>
-            <p class="center-align grey-text text-darken-3">
+            <p class="center-align grey-text text-darken-3 flow-text hide-on-small-only">
                 Do you want to book an appointment with us? Let us know by filling up this form.
             </p>
         </div>
@@ -16,8 +16,7 @@
             <div class="row">
                 <div class="input-field col s12 m6">
                     <i class="fa-solid fa-magnifying-glass prefix"></i>
-                    <select>
-                        <option value="" disabled selected>Choose your option</option>
+                    <select required>
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
                         <option value="3">Option 3</option>
@@ -26,21 +25,34 @@
                 </div>
                 <div class="input-field col s12 m6">
                     <i class="fa-solid fa-calendar-days prefix"></i>
-                    <input type="text" class="datepicker">
-                    <label>Requesting date</label>
+                    <input id="requested_date"
+                           name="requested_date"
+                           type="text"
+                           class="datepicker validate"
+                           required>
+                    <label for="requested_date">
+                        Date request
+                    </label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-pencil prefix"></i>
-                    <textarea id="textarea1" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Additional information</label>
+                    <textarea id="additional_information"
+                              name="additional_information"
+                              class="materialize-textarea validate"
+                              maxlength="400">
+                    </textarea>
+                    <label for="additional_information">
+                        Additional information
+                    </label>
                 </div>
             </div>
             <div class="row">
                 <div class="col s12 center-align">
-                    <button type="submit" class="btn-large pink darken-1">
-                        Book Now <i class="fa-solid fa-plus-square right"></i>
+                    <button type="submit"
+                            class="col s12 m4 offset-m4 waves-effect waves-light btn-large deep-purple darken-4">
+                        Book Now
                     </button>
                 </div>
             </div>

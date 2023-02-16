@@ -5,6 +5,7 @@ $(document).ready(function(){
     $("select").formSelect();
     $(".datepicker").datepicker({
         format: "yyyy-mm-dd",
+        yearRange: 1,
         disableWeekends: true,
         showClearBtn: true,
         i18n: {
