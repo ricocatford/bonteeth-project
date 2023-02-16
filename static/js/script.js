@@ -2,6 +2,7 @@ $(document).ready(function(){
     $(".sidenav").sidenav({edge: "right"});
     $(".tooltipped").tooltip();
     $(".collapsible").collapsible();
+    $("select").formSelect();
     $(".datepicker").datepicker({
         format: "yyyy-mm-dd",
         disableWeekends: true,

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row">
+        <!--    Page heading    -->
+        <div class="col s12">
+            <h3 class="center-align grey-text text-darken-3">
+                Book an Appointment
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <form class="col s12" method="POST" action="">
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <i class="fa-solid fa-magnifying-glass prefix"></i>
+                    <select>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                    <label>Reason for visit</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <i class="fa-solid fa-calendar-days prefix"></i>
+                    <input type="text" class="datepicker">
+                    <label>Requesting date</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fa-solid fa-pencil prefix"></i>
+                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Additional information</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large pink darken-1">
+                        Book Now <i class="fa-solid fa-plus-square right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

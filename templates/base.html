@@ -17,7 +17,9 @@
     <nav>
         <div class="nav-wrapper deep-purple">
             <a href="#!" class="brand-logo">BonTeeth</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fa-solid fa-bars"></i></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
+                <i class="fa-solid fa-bars"></i>
+            </a>
             <ul class="right hide-on-med-and-down">
                 <li>
                     <a href="{{ url_for('home') }}" class="center-align text-uppercase">
@@ -78,17 +80,20 @@
         </li>
         {% if session.user %}
         <li>
-            <a href="{{ url_for('appointments') }}" class="center-align text-uppercase">
+            <a href="{{ url_for('appointments') }}"
+               class="center-align text-uppercase">
                 Appointments
             </a>
         </li>
         <li>
-            <a href="{{ url_for('profile', username=session['user']) }}" class="center-align text-uppercase">
+            <a href="{{ url_for('profile', username=session['user']) }}"
+               class="center-align text-uppercase">
                 Profile
             </a>
         </li>
         <li>
-            <a href="{{ url_for('logout') }}" class="center-align text-uppercase">
+            <a href="{{ url_for('logout') }}"
+               class="center-align text-uppercase">
                 Log Out
             </a>
         </li>
