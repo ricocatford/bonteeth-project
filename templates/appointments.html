@@ -84,6 +84,16 @@
                             <i class="grey-text text-darken-4 fa-solid fa-clock"></i>
                             {{ appointment.requested_time }}
                         </p>
+                        <div class="row button-controls">
+                            <a href="#"
+                               class="col s12 m3 offset-m2 waves-effect waves-light btn-large red darken-4">
+                                Cancel
+                            </a>
+                            <a href="{{ url_for('edit_appointment', appointment_id=appointment._id) }}"
+                               class="col s12 m3 offset-m2 waves-effect waves-light btn-large deep-purple darken-4">
+                                Edit
+                            </a>
+                        </div>
                     </div>
                 </li>
             {% endif %}

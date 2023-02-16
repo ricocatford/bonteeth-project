@@ -4,15 +4,12 @@
         <!--    Page heading    -->
         <div class="col s12">
             <h3 class="center-align grey-text text-darken-3">
-                Book an Appointment
+                Edit an Appointment
             </h3>
-            <p class="center-align grey-text text-darken-3 flow-text hide-on-small-only">
-                Do you want to book an appointment with us? Let us know by filling up this form.
-            </p>
         </div>
     </div>
     <div class="row">
-        <form class="col s12" method="POST" action="{{ url_for('book_appointment') }}">
+        <form class="col s12" method="POST" action="{{ url_for('edit_appointment', appointment_id=appointment._id) }}">
             <div class="row">
                 <div class="input-field col s12 m4">
                     <i class="fa-solid fa-magnifying-glass prefix"></i>
@@ -69,7 +66,7 @@
                 <div class="col s12 center-align">
                     <button type="submit"
                             class="col s12 m4 offset-m4 waves-effect waves-light btn-large deep-purple darken-4">
-                        Book Now
+                        Edit
                     </button>
                 </div>
             </div>

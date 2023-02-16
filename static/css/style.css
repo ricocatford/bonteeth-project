@@ -75,6 +75,10 @@ img {
   display: block;
 }
 
+.button-controls {
+    margin-top: 2rem;
+}
+
 .footer-social-icon {
     font-size: 1.5em;
 }
