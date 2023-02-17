@@ -129,7 +129,7 @@ def book_appointment():
         }
 
         mongo.db.appointments.insert_one(appointment)
-        flash("Appointment booked successfully! Please wait for us to review it and proceed")
+        flash("Appointment booked successfully! Please wait for us to review it and proceed.")
         return redirect(url_for("manage_appointments"))
 
     reasons = mongo.db.reason_for_visit.find().sort("reason", 1)
@@ -148,7 +148,7 @@ def edit_appointment(appointment_id):
         }
 
         mongo.db.appointments.update_one({"_id": ObjectId(appointment_id)}, {"$set": edited_appointment})
-        flash("Appointment updated successfully")
+        flash("Appointment updated successfully.")
         return redirect(url_for("manage_appointments"))
 
     appointment = mongo.db.appointments.find_one({"_id": ObjectId(appointment_id)})
@@ -162,7 +162,7 @@ def cancel_appointment(appointment_id):
     }
 
     mongo.db.appointments.update_one({"_id": ObjectId(appointment_id)}, {"$set": cancelled_appointment})
-
+    flash("Appointment cancelled successfully.")
     return redirect(url_for("manage_appointments"))
 
 
@@ -173,7 +173,7 @@ def accept_appointment(appointment_id):
     }
 
     mongo.db.appointments.update_one({"_id": ObjectId(appointment_id)}, {"$set": accepted_appointment})
-
+    flash("Appointment accepted.")
     return redirect(url_for("manage_appointments"))
 
 
@@ -184,9 +184,15 @@ def reject_appointment(appointment_id):
     }
 
     mongo.db.appointments.update_one({"_id": ObjectId(appointment_id)}, {"$set": rejected_appointment})
-
+    flash("Appointment rejected.")
     return redirect(url_for("manage_appointments"))
 
+
+@app.route("/delete-appointment/<appointment_id>")
+def delete_appointment(appointment_id):
+    mongo.db.appointments.delete_one({"_id": ObjectId(appointment_id)})
+    flash("Appointment deleted.")
+    return redirect(url_for("manage_appointments"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

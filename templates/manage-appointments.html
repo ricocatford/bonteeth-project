@@ -29,11 +29,14 @@
                     </span>
                 </div>
                 <div class="collapsible-body">
+                    <a href="{{ url_for('delete_appointment', appointment_id=appointment._id) }}">
+                        <i class="grey-text text-darken-4 fa-solid fa-trash-can right"></i>
+                    </a>
                     <p class="capitalize appointment-{{ appointment.status }}">
                         <span class="grey-text text-darken-2">Status:</span> {{ appointment.status }}
                     </p>
                     <p class="grey-text text-darken-2">
-                        Created by: {{ appointment.created_by }}
+                        Created by: <span class="capitalize">{{ appointment.created_by }}</span>
                     </p>
                     <p class="grey-text text-darken-2">
                         Created on: {{ appointment.created_on }}

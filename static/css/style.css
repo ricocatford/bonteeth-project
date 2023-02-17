@@ -23,6 +23,10 @@ img {
     margin-top: .15rem;
 }
 
+.flash-text {
+    margin: 2rem auto;
+}
+
 .display-flex {
     display: flex;
 }
@@ -40,7 +44,7 @@ img {
 }
 
 .flow-text {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 .grow {

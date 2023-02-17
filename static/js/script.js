@@ -13,6 +13,7 @@ $(document).ready(function(){
         }
     });
     $(".timepicker").timepicker({
-        twelveHour: false
+        defaultTime: "09:00",
     });
 });
+

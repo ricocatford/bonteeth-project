@@ -26,15 +26,17 @@
                         Home
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="center-align text-uppercase">
-                        Contact Us
-                    </a>
-                </li>
                 {% if session.user %}
+                    {% if session.user and session.user != "admin" %}
+                        <li>
+                            <a href="{{ url_for('book_appointment') }}" class="center-align text-uppercase">
+                                Book Appointment
+                            </a>
+                        </li>
+                    {% endif %}
                 <li>
                     <a href="{{ url_for('manage_appointments') }}" class="center-align text-uppercase">
-                        Appointments
+                        Manage Appointments
                     </a>
                 </li>
                 <li>
@@ -74,26 +76,30 @@
             </h5>
         </li>
         <li>
-            <a href="#" class="center-align text-uppercase">
-                Contact Us
+            <a href="{{ url_for('home') }}" class="center-align text-uppercase">
+                Home
             </a>
         </li>
         {% if session.user %}
+            {% if session.user and session.user != "admin" %}
+                <li>
+                    <a href="{{ url_for('book_appointment') }}" class="center-align text-uppercase">
+                        Book Appointment
+                    </a>
+                </li>
+            {% endif %}
         <li>
-            <a href="{{ url_for('manage_appointments') }}"
-               class="center-align text-uppercase">
-                Appointments
+            <a href="{{ url_for('manage_appointments') }}" class="center-align text-uppercase">
+                Manage Appointments
             </a>
         </li>
         <li>
-            <a href="{{ url_for('profile', username=session['user']) }}"
-               class="center-align text-uppercase">
+            <a href="{{ url_for('profile', username=session['user']) }}" class="center-align text-uppercase">
                 Profile
             </a>
         </li>
         <li>
-            <a href="{{ url_for('logout') }}"
-               class="center-align text-uppercase">
+            <a href="{{ url_for('logout') }}" class="center-align text-uppercase">
                 Log Out
             </a>
         </li>
@@ -117,8 +123,8 @@
         {% if messages %}
             {% for message in messages %}
                 <div class="row flashes">
-                    <div class="col s12 l8 offset-l2 card-panel pink lighten-4">
-                        <h5 class="grey-text text-darken-4 center-align">
+                    <div class="col s12 l8 offset-l2 card-panel deep-purple lighten-5">
+                        <h5 class="grey-text text-darken-4 center-align flash-text">
                             {{ message }}
                         </h5>
                     </div>
