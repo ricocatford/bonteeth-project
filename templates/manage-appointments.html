@@ -15,7 +15,7 @@
         </div>
     </div>
 {% endif %}
-{% if session.user|lower == "admin" %}
+{% if session.user == "admin" %}
     <ul class="collapsible">
         {% for appointment in appointments %}
             <li>
@@ -24,13 +24,16 @@
                     <p class="appointment-reason">
                         {{ appointment.reason_for_visit }}
                     </p>
-                    <span class="grey-text text-darken-2 username right">
-                        {{ appointment.created_by }}
+                    <span class="capitalize appointment-{{ appointment.status }}">
+                        {{ appointment.status }}
                     </span>
                 </div>
                 <div class="collapsible-body">
+                    <p class="capitalize appointment-{{ appointment.status }}">
+                        <span class="grey-text text-darken-2">Status:</span> {{ appointment.status }}
+                    </p>
                     <p class="grey-text text-darken-2">
-                        Status: {{ appointment.status }}
+                        Created by: {{ appointment.created_by }}
                     </p>
                     <p class="grey-text text-darken-2">
                         Created on: {{ appointment.created_on }}
@@ -47,6 +50,16 @@
                         <i class="grey-text text-darken-4 fa-solid fa-clock"></i>
                         {{ appointment.requested_time }}
                     </p>
+                    <div class="row button-controls">
+                        <a href="{{ url_for('reject_appointment', appointment_id=appointment._id) }}"
+                           class="col s12 m3 offset-m2 waves-effect waves-light btn-large red darken-4">
+                            Reject
+                        </a>
+                        <a href="{{ url_for('accept_appointment', appointment_id=appointment._id) }}"
+                           class="col s12 m3 offset-m2 waves-effect waves-light btn-large green darken-4">
+                            Accept
+                        </a>
+                    </div>
                 </div>
             </li>
         {% endfor %}
@@ -61,13 +74,13 @@
                         <p class="appointment-reason">
                             {{ appointment.reason_for_visit }}
                         </p>
-                        <span class="grey-text text-darken-2 username right">
+                        <span class="capitalize appointment-{{ appointment.status }}">
                             {{ appointment.status }}
                         </span>
                     </div>
                     <div class="collapsible-body">
-                        <p class="grey-text text-darken-2">
-                            Status: {{ appointment.status }}
+                        <p class="capitalize appointment-{{ appointment.status }}">
+                            <span class="grey-text text-darken-2">Status:</span> {{ appointment.status }}
                         </p>
                         <p class="grey-text text-darken-2">
                             Created on: {{ appointment.created_on }}
@@ -85,8 +98,8 @@
                             {{ appointment.requested_time }}
                         </p>
                         <div class="row button-controls">
-                            <a href="#"
-                               class="col s12 m3 offset-m2 waves-effect waves-light btn-large red darken-4">
+                            <a href="{{ url_for('cancel_appointment', appointment_id=appointment._id) }}"
+                               class="col s12 m3 offset-m2 waves-effect waves-light btn-large pink darken-4">
                                 Cancel
                             </a>
                             <a href="{{ url_for('edit_appointment', appointment_id=appointment._id) }}"

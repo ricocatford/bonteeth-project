@@ -93,8 +93,8 @@ def format_date(datetime_string):
     return formatted_datetime.strftime("%d %B, %Y")
 
 
-@app.route("/appointments")
-def appointments():
+@app.route("/manage-appointments")
+def manage_appointments():
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
@@ -108,7 +108,7 @@ def appointments():
         formatted_appointment["requested_date"] = format_date(formatted_appointment["requested_date"])
         formatted_appointments.append(formatted_appointment)
 
-    return render_template("appointments.html", appointments=formatted_appointments)
+    return render_template("manage-appointments.html", appointments=formatted_appointments)
 
 
 @app.route("/book-appointment", methods=["GET", "POST"])
@@ -125,12 +125,12 @@ def book_appointment():
             "requested_date": request.form.get("requested_date"),
             "requested_time": request.form.get("requested_time"),
             "additional_information": request.form.get("additional_information"),
-            "status": "Pending"
+            "status": "pending"
         }
 
         mongo.db.appointments.insert_one(appointment)
-        flash("Appointment booked successfully! Please wait for us to review and proceed")
-        return redirect(url_for("appointments"))
+        flash("Appointment booked successfully! Please wait for us to review it and proceed")
+        return redirect(url_for("manage_appointments"))
 
     reasons = mongo.db.reason_for_visit.find().sort("reason", 1)
     return render_template("book-appointment.html", reasons=reasons)
@@ -148,12 +148,44 @@ def edit_appointment(appointment_id):
         }
 
         mongo.db.appointments.update_one({"_id": ObjectId(appointment_id)}, {"$set": edited_appointment})
-        flash("Appointment successfully updated")
-        return redirect(url_for("appointments"))
+        flash("Appointment updated successfully")
+        return redirect(url_for("manage_appointments"))
 
     appointment = mongo.db.appointments.find_one({"_id": ObjectId(appointment_id)})
     reasons = mongo.db.reason_for_visit.find().sort("reason", 1)
     return render_template("edit-appointment.html", appointment=appointment, reasons=reasons)
+
+@app.route("/cancel-appointment/<appointment_id>")
+def cancel_appointment(appointment_id):
+    cancelled_appointment = {
+        "status": "cancelled"
+    }
+
+    mongo.db.appointments.update_one({"_id": ObjectId(appointment_id)}, {"$set": cancelled_appointment})
+
+    return redirect(url_for("manage_appointments"))
+
+
+@app.route("/accept-appointment/<appointment_id>")
+def accept_appointment(appointment_id):
+    accepted_appointment = {
+        "status": "accepted"
+    }
+
+    mongo.db.appointments.update_one({"_id": ObjectId(appointment_id)}, {"$set": accepted_appointment})
+
+    return redirect(url_for("manage_appointments"))
+
+
+@app.route("/reject-appointment/<appointment_id>")
+def reject_appointment(appointment_id):
+    rejected_appointment = {
+        "status": "rejected"
+    }
+
+    mongo.db.appointments.update_one({"_id": ObjectId(appointment_id)}, {"$set": rejected_appointment})
+
+    return redirect(url_for("manage_appointments"))
 
 
 if __name__ == "__main__":

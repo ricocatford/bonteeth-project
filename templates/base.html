@@ -33,7 +33,7 @@
                 </li>
                 {% if session.user %}
                 <li>
-                    <a href="{{ url_for('appointments') }}" class="center-align text-uppercase">
+                    <a href="{{ url_for('manage_appointments') }}" class="center-align text-uppercase">
                         Appointments
                     </a>
                 </li>
@@ -80,7 +80,7 @@
         </li>
         {% if session.user %}
         <li>
-            <a href="{{ url_for('appointments') }}"
+            <a href="{{ url_for('manage_appointments') }}"
                class="center-align text-uppercase">
                 Appointments
             </a>

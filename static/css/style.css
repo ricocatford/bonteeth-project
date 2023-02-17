@@ -56,8 +56,24 @@ img {
     min-height: 70vh;
 }
 
-.username {
+.capitalize {
     text-transform: capitalize;
+}
+
+.appointment-pending {
+    color: #757575;
+}
+
+.appointment-accepted {
+    color: #2e7d32;
+}
+
+.appointment-rejected {
+    color: #b71c1c;
+}
+
+.appointment-cancelled {
+    color: #ffab00;
 }
 
 .appointment-reason {
