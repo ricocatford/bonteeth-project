@@ -11,19 +11,21 @@
     </div>
     <div class="row">
         <div class="col s12 m4">
-            <div class="card grow">
-                <div class="card-image">
-                    <img src="{{ url_for('static',filename='images/account.jpg') }}">
-                    <span class="card-title white-text text-pink-shadow">
-                        My Account
-                    </span>
+            <a href="{{ url_for('account', username=session['user']) }}">
+                <div class="card grow">
+                    <div class="card-image">
+                        <img src="{{ url_for('static',filename='images/account.jpg') }}">
+                        <span class="card-title white-text text-pink-shadow">
+                            My Account
+                        </span>
+                    </div>
+                    <div class="card-content">
+                        <p class="grey-text text-darken-3">
+                            View and edit your account information, such as email address or password.
+                        </p>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <p class="grey-text text-darken-3">
-                        View and edit your account information, such as email address or password.
-                    </p>
-                </div>
-            </div>
+            </a>
         </div>
         <div class="col s12 m4">
             <a href="{{ url_for('book_appointment') }}">

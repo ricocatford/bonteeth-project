@@ -64,6 +64,10 @@ img {
     text-transform: capitalize;
 }
 
+.delete-icon {
+    font-size: 2em;
+}
+
 .appointment-pending {
     color: #757575;
 }

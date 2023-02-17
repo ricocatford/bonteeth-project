@@ -88,6 +88,19 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+@app.route("/profile/account/<username>")
+def account(username):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]
+
+        })["username"]
+
+    if session["user"]:
+        return render_template("account.html" , username=username)
+
+    return redirect(url_for("login"))
+
+
 def format_date(datetime_string):
     formatted_datetime = datetime.strptime(datetime_string, "%Y-%m-%d")
     return formatted_datetime.strftime("%d %B, %Y")
@@ -173,7 +186,7 @@ def accept_appointment(appointment_id):
     }
 
     mongo.db.appointments.update_one({"_id": ObjectId(appointment_id)}, {"$set": accepted_appointment})
-    flash("Appointment accepted.")
+    flash("Appointment accepted successfully.")
     return redirect(url_for("manage_appointments"))
 
 
@@ -184,14 +197,14 @@ def reject_appointment(appointment_id):
     }
 
     mongo.db.appointments.update_one({"_id": ObjectId(appointment_id)}, {"$set": rejected_appointment})
-    flash("Appointment rejected.")
+    flash("Appointment rejected successfully.")
     return redirect(url_for("manage_appointments"))
 
 
 @app.route("/delete-appointment/<appointment_id>")
 def delete_appointment(appointment_id):
     mongo.db.appointments.delete_one({"_id": ObjectId(appointment_id)})
-    flash("Appointment deleted.")
+    flash("Appointment deleted successfully.")
     return redirect(url_for("manage_appointments"))
 
 if __name__ == "__main__":

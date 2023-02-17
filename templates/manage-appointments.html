@@ -30,7 +30,7 @@
                 </div>
                 <div class="collapsible-body">
                     <a href="{{ url_for('delete_appointment', appointment_id=appointment._id) }}">
-                        <i class="grey-text text-darken-4 fa-solid fa-trash-can right"></i>
+                        <i class="grey-text text-darken-4 fa-solid fa-trash-can right delete-icon"></i>
                     </a>
                     <p class="capitalize appointment-{{ appointment.status }}">
                         <span class="grey-text text-darken-2">Status:</span> {{ appointment.status }}
@@ -102,7 +102,7 @@
                         </p>
                         <div class="row button-controls">
                             <a href="{{ url_for('cancel_appointment', appointment_id=appointment._id) }}"
-                               class="col s12 m3 offset-m2 waves-effect waves-light btn-large pink darken-4">
+                               class="col s12 m3 offset-m2 waves-effect waves-light btn-large red darken-4">
                                 Cancel
                             </a>
                             <a href="{{ url_for('edit_appointment', appointment_id=appointment._id) }}"
