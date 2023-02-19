@@ -88,7 +88,7 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-@app.route("/profile/account/<username>")
+@app.route("/profile/<username>/account/")
 def account(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]
@@ -108,9 +108,6 @@ def format_date(datetime_string):
 
 @app.route("/manage-appointments")
 def manage_appointments():
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
     appointments = list(mongo.db.appointments.find())
 
     formatted_appointments = []
@@ -210,4 +207,4 @@ def delete_appointment(appointment_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)
