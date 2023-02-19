@@ -10,41 +10,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col s12 m4">
-            <a href="{{ url_for('account', username=session['user']) }}">
-                <div class="card grow">
-                    <div class="card-image">
-                        <img src="{{ url_for('static',filename='images/account.jpg') }}">
-                        <span class="card-title white-text text-pink-shadow">
-                            My Account
-                        </span>
-                    </div>
-                    <div class="card-content">
-                        <p class="grey-text text-darken-3">
-                            Currently you can only change your password.
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col s12 m4">
-            <a href="{{ url_for('book_appointment') }}">
-                <div class="card grow">
-                    <div class="card-image">
-                        <img src="{{ url_for('static',filename='images/dentist.jpg') }}">
-                        <span class="card-title white-text text-pink-shadow">
-                            Book an Appointment
-                        </span>
-                    </div>
-                    <div class="card-content">
-                        <p class="grey-text text-darken-3">
-                            Fill up the form and come visit us. We want you to smile more!
-                        </p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col s12 m4">
+        <div class="col s12 m6">
             <a href="{{ url_for('manage_appointments') }}">
                 <div class="card grow">
                     <div class="card-image">
@@ -61,6 +27,24 @@
                 </div>
             </a>
         </div>
+        <div class="col s12 m6">
+            <a href="{{ url_for('book_appointment') }}">
+                <div class="card grow">
+                    <div class="card-image">
+                        <img src="{{ url_for('static',filename='images/dentist.jpg') }}">
+                        <span class="card-title white-text text-pink-shadow">
+                            Book an Appointment
+                        </span>
+                    </div>
+                    <div class="card-content">
+                        <p class="grey-text text-darken-3">
+                            Fill up the form and come visit us. We want you to smile more!
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
     </div>
 
 {% endblock %}

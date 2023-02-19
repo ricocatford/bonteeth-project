@@ -88,19 +88,6 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-@app.route("/profile/<username>/account/")
-def account(username):
-    username = mongo.db.users.find_one(
-        {"username": session["user"]
-
-        })["username"]
-
-    if session["user"]:
-        return render_template("account.html" , username=username)
-
-    return redirect(url_for("login"))
-
-
 def format_date(datetime_string):
     formatted_datetime = datetime.strptime(datetime_string, "%Y-%m-%d")
     return formatted_datetime.strftime("%d %B, %Y")
