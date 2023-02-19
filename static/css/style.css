@@ -43,12 +43,24 @@ img {
     text-shadow: 0 0 1em #e91e63, 0 0 0.2em #e91e63;
 }
 
+.text-black-shadow {
+    text-shadow: 0 0 1em #000000, 0 0 0.2em #000000;
+}
+
+.btn-large {
+    margin-bottom: .5rem;
+}
+
 .flow-text {
     margin-bottom: 4rem;
 }
 
 .grow {
     transition: all .2s ease-in-out;
+}
+
+.capitalize {
+    text-transform: capitalize;
 }
 
 .grow:hover,
@@ -60,8 +72,41 @@ img {
     min-height: 70vh;
 }
 
-.capitalize {
-    text-transform: capitalize;
+.hero-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: url('../images/home.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.hero-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-headings-wrapper {
+    background-color: rgba(0, 0, 0, 0.6);
+    margin-top: 2rem;
+}
+
+.hero-subheading {
+    margin: 3rem 0 4rem;
+}
+
+.hero-form-register {
+    margin-top: 1.5rem;
 }
 
 .delete-icon {
