@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row">
+        <!--    Page heading    -->
+        <div class="col s12">
+            <h3 class="center-align grey-text text-darken-3">
+                Contact Us
+            </h3>
+            <p class="center-align grey-text text-darken-3 flow-text">
+                Do you have any enquiry? Please, let us know by filling up the form below. Note that the email address
+                you provide is going to be used for contacting you back.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <form class="col s12" method="POST" action="">
+            <div class="row">
+                <div class="input-field col s12 m4">
+                    <i class="fa-solid fa-user prefix"></i>
+                    <input id="first_name"
+                           name="first_name"
+                           value=""
+                           type="text"
+                           class="validate"
+                           required>
+                    <label for="first_name">
+                        First Name
+                    </label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="fa-solid fa-users prefix"></i>
+                    <input id="last_name"
+                           name="last_name"
+                           value=""
+                           type="text"
+                           class="validate"
+                           required>
+                    <label for="last_name">
+                        Last Name
+                    </label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="fa-solid fa-magnifying-glass prefix"></i>
+                    <select id="reason_for_contact"
+                            name="reason_for_contact"
+                            class="validate"
+                            required>
+                        <option value="appointments">Appointments</option>
+                        <option value="advice">Advice</option>
+                        <option value="fees">Fees</option>
+                        <option value="invoices">Invoices</option>
+                        <option value="others">Others</option>
+                    </select>
+                    <label for="reason_for_contact">
+                        Reason for contact
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fa-solid fa-pencil prefix"></i>
+                    <textarea id="message"
+                              name="message"
+                              class="materialize-textarea validate"
+                              maxlength="400"></textarea>
+                    <label for="message">
+                        Message
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit"
+                            class="col s12 m4 offset-m4 waves-effect waves-light btn-large deep-purple darken-4">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

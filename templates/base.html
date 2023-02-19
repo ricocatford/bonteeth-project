@@ -16,7 +16,8 @@
     <!--    Top navbar    -->
     <nav>
         <div class="nav-wrapper deep-purple darken-4">
-            <a href="#!" class="brand-logo">BonTeeth</a>
+            <i class="fa-solid fa-tooth grey-text text-lighten-2 hide-on-small-and-down brand-logo-icon"></i>
+            <a href="{{ url_for('home') }}" class="brand-logo">BonTeeth</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
                 <i class="fa-solid fa-bars"></i>
             </a>
@@ -45,14 +46,19 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ url_for('contact') }}" class="center-align text-uppercase">
+                        Contact Us
+                    </a>
+                </li>
+                <li>
                     <a href="{{ url_for('logout') }}" class="center-align text-uppercase">
                         Log Out
                     </a>
                 </li>
                 {% else %}
                 <li>
-                    <a href="#" class="center-align text-uppercase">
-                        Book an Appointment
+                    <a href="{{ url_for('contact') }}" class="center-align text-uppercase">
+                        Contact Us
                     </a>
                 </li>
                 <li>
@@ -99,14 +105,19 @@
             </a>
         </li>
         <li>
+            <a href="{{ url_for('contact') }}" class="center-align text-uppercase">
+                Contact Us
+            </a>
+        </li>
+        <li>
             <a href="{{ url_for('logout') }}" class="center-align text-uppercase">
                 Log Out
             </a>
         </li>
         {% else %}
         <li>
-            <a href="#" class="center-align text-uppercase">
-                Book an Appointment
+            <a href="{{ url_for('contact') }}" class="center-align text-uppercase">
+                Contact Us
             </a>
         </li>
         <li>
@@ -117,6 +128,7 @@
         {% endif %}
     </ul>
 </header>
+
 <section>
     <!--    Flash messages    -->
     {% with messages = get_flashed_messages() %}
@@ -132,6 +144,7 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
+
 </section>
 
 <main class="container block-container">
@@ -237,6 +250,7 @@
             </div>
         </div>
     </div>
+<!--    Footer copyright   -->
     <div class="footer-copyright grey darken-4">
         <div class="container white-text text-lighten-3">
             © 2023 BonTeeth

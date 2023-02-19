@@ -30,13 +30,21 @@
                 </div>
                 <div class="collapsible-body">
                     <a href="{{ url_for('delete_appointment', appointment_id=appointment._id) }}">
-                        <i class="grey-text text-darken-4 fa-solid fa-trash-can right delete-icon"></i>
+                        <i class="grey-text text-darken-4 fa-solid fa-trash-can right admin-icon"></i>
                     </a>
-                    <p class="capitalize appointment-{{ appointment.status }}">
-                        <span class="grey-text text-darken-2">Status:</span> {{ appointment.status }}
+                    <a href="">
+                        <i class="grey-text text-darken-4 fa-solid fa-envelope right admin-icon"></i>
+                    </a>
+                    <p class="grey-text text-darken-2">
+                        Status:
+                        <span class="capitalize appointment-{{ appointment.status }}">
+                            {{ appointment.status }}
+                        </span>
                     </p>
                     <p class="grey-text text-darken-2">
-                        Created by: <span class="capitalize">{{ appointment.created_by }}</span>
+                        Created by:
+                        <span class="capitalize">{{ appointment.created_by }}
+                        </span>
                     </p>
                     <p class="grey-text text-darken-2">
                         Created on: {{ appointment.created_on }}
