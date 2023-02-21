@@ -46,7 +46,6 @@
                 </div>
             </a>
         </div>
-        {% if session.user != "admin" %}
         <!--    Book an Appointment card    -->
         <div class="col s12 m4">
             <a href="{{ url_for('book_appointment') }}">
@@ -65,8 +64,6 @@
                 </div>
             </a>
         </div>
-        {% endif %}
-
     </div>
 
 {% endblock %}

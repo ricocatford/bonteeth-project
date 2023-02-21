@@ -19,8 +19,8 @@
             {% if session.user == message.sent_to %}
             <li>
                 <div class="collapsible-header display-flex justify-space-between">
-                    <i class="deep-purple-text text-darken-4 fa-solid fa-envelope"></i>
-                    <p class="capitalize">
+                    <i class="deep-purple-text text-darken-4 fa-solid fa-envelope hide-on-small-only"></i>
+                    <p class="capitalize collapsible-reason">
                         {{ message.reason_for_contact }}
                     </p>
                     <span class="capitalize">
@@ -28,9 +28,11 @@
                     </span>
                 </div>
                 <div class="collapsible-body">
+                    {% if session.user == "admin" %}
                     <a href="{{ url_for('delete_message', message_id=message._id) }}">
                         <i class="grey-text text-darken-4 fa-solid fa-trash-can right admin-icon"></i>
                     </a>
+                    {% endif %}
                     <p class="grey-text text-darken-2">
                         Sent by:
                         <span class="capitalize">
@@ -41,7 +43,7 @@
                         Sent on: {{ message.sent_on }}
                     </p>
                     <br class="divider">
-                    <p class="grey-text text-darken-3 appointment-info">
+                    <p class="grey-text text-darken-3 collapsible-info">
                         {{ message.message }}
                     </p>
                 </div>

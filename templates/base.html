@@ -16,7 +16,7 @@
     <!--    Top navbar    -->
     <nav>
         <div class="nav-wrapper deep-purple darken-4">
-            <i class="fa-solid fa-tooth grey-text text-lighten-2 hide-on-small-and-down brand-logo-icon"></i>
+            <i class="fa-solid fa-tooth grey-text text-lighten-2 hide-on-med-and-down brand-logo-icon"></i>
             <a href="{{ url_for('home') }}" class="brand-logo">BonTeeth</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
                 <i class="fa-solid fa-bars"></i>
@@ -43,6 +43,11 @@
                 <li>
                     <a href="{{ url_for('manage_appointments') }}" class="center-align text-uppercase">
                         Manage Appointments
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('messages', username=session['user']) }}" class="center-align text-uppercase">
+                        Messages
                     </a>
                 </li>
                 <li>
@@ -102,6 +107,11 @@
         <li>
             <a href="{{ url_for('manage_appointments') }}" class="center-align text-uppercase">
                 Manage Appointments
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('messages', username=session['user']) }}" class="center-align text-uppercase">
+                Messages
             </a>
         </li>
         <li>

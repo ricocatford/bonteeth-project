@@ -19,8 +19,8 @@
         {% for appointment in appointments %}
             <li>
                 <div class="collapsible-header display-flex justify-space-between">
-                    <i class="deep-purple-text text-darken-4 fa-solid fa-tooth"></i>
-                    <p class="collapsible-reason">
+                    <i class="deep-purple-text text-darken-4 fa-solid fa-tooth hide-on-small-only"></i>
+                    <p class="capitalize collapsible-reason">
                         {{ appointment.reason_for_visit }}
                     </p>
                     <span class="capitalize appointment-{{ appointment.status }}">
@@ -81,8 +81,8 @@
             {% if session.user == appointment.created_by %}
                 <li>
                     <div class="collapsible-header display-flex justify-space-between">
-                        <i class="deep-purple-text text-darken-4 fa-solid fa-tooth"></i>
-                        <p class="collapsible-reason">
+                        <i class="deep-purple-text text-darken-4 fa-solid fa-tooth hide-on-small-only"></i>
+                        <p class="capitalize collapsible-reason">
                             {{ appointment.reason_for_visit }}
                         </p>
                         <span class="capitalize appointment-{{ appointment.status }}">
@@ -126,13 +126,6 @@
             {% endif %}
         {% endfor %}
     </ul>
-{% elif not session.user %}
-    <div class="row">
-        <div class="col s12">
-            Log in to see appointments
-        </div>
-    </div>
 {% endif %}
-
 {% endblock %}
 
