@@ -10,11 +10,28 @@
         </div>
     </div>
     <div class="row">
-        <div class="col s12 m6">
+        <div class="col s12 m4">
             <a href="{{ url_for('manage_appointments') }}">
                 <div class="card grow">
                     <div class="card-image">
-                        <img src="{{ url_for('static',filename='images/toothbrush_jar.jpg') }}">
+                        <img src="{{ url_for('static',filename='images/profile/messages.jpg') }}">
+                        <span class="card-title white-text text-pink-shadow">
+                            Messages
+                        </span>
+                    </div>
+                    <div class="card-content">
+                        <p class="grey-text text-darken-3">
+                            Read your messages, note that we will use these for contacting you back.
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col s12 m4">
+            <a href="{{ url_for('manage_appointments') }}">
+                <div class="card grow">
+                    <div class="card-image">
+                        <img src="{{ url_for('static',filename='images/profile/manage-appointments.jpg') }}">
                         <span class="card-title white-text text-pink-shadow">
                             Manage Appointments
                         </span>
@@ -27,11 +44,11 @@
                 </div>
             </a>
         </div>
-        <div class="col s12 m6">
+        <div class="col s12 m4">
             <a href="{{ url_for('book_appointment') }}">
                 <div class="card grow">
                     <div class="card-image">
-                        <img src="{{ url_for('static',filename='images/dentist.jpg') }}">
+                        <img src="{{ url_for('static',filename='images/profile/book-appointment.jpg') }}">
                         <span class="card-title white-text text-pink-shadow">
                             Book an Appointment
                         </span>

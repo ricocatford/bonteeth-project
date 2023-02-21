@@ -58,7 +58,7 @@ def login():
 
         if existing_user:
             if check_password_hash(existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username")
+                session["user"] = request.form.get("username").lower()
                 return redirect(url_for("profile", username=session["user"]))
 
             else:
@@ -76,8 +76,28 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/contact-us")
+@app.route("/contact-us", methods=["GET", "POST"])
 def contact():
+    if request.method == "POST":
+
+        today = date.today()
+        current_date = today.strftime("%Y-%m-%d")
+
+        if session["user"]:
+
+            message_from_user = {
+                "sent_by": session["user"],
+                "sent_on": current_date,
+                "first_name": request.form.get("first_name"),
+                "last_name": request.form.get("last_name"),
+                "reason_for_contact": request.form.get("reason_for_contact"),
+                "message": request.form.get("message")
+            }
+
+            mongo.db.messages.insert_one(message_from_user)
+            flash("Message sent successfully! You can shortly find our reply below, on your Messages section.")
+            return redirect(url_for("profile", username=session["user"]))
+
     return render_template("contact-us.html")
 
 
@@ -95,6 +115,14 @@ def profile(username):
 def format_date(datetime_string):
     formatted_datetime = datetime.strptime(datetime_string, "%Y-%m-%d")
     return formatted_datetime.strftime("%d %B, %Y")
+
+
+@app.route("/messages")
+def messages():
+    if session["user"]:
+        return render_template("profile.html", username=session["user"])
+
+    return redirect(url_for("login"))
 
 
 @app.route("/manage-appointments")

@@ -30,6 +30,11 @@
                 {% if session.user %}
                     {% if session.user and session.user != "admin" %}
                         <li>
+                            <a href="{{ url_for('contact') }}" class="center-align text-uppercase">
+                                Contact Us
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ url_for('book_appointment') }}" class="center-align text-uppercase">
                                 Book Appointment
                             </a>
@@ -43,11 +48,6 @@
                 <li>
                     <a href="{{ url_for('profile', username=session['user']) }}" class="center-align text-uppercase">
                         Profile
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url_for('contact') }}" class="center-align text-uppercase">
-                        Contact Us
                     </a>
                 </li>
                 <li>
@@ -89,6 +89,11 @@
         {% if session.user %}
             {% if session.user and session.user != "admin" %}
                 <li>
+                    <a href="{{ url_for('contact') }}" class="center-align text-uppercase">
+                        Contact Us
+                    </a>
+                </li>
+                <li>
                     <a href="{{ url_for('book_appointment') }}" class="center-align text-uppercase">
                         Book Appointment
                     </a>
@@ -104,11 +109,7 @@
                 Profile
             </a>
         </li>
-        <li>
-            <a href="{{ url_for('contact') }}" class="center-align text-uppercase">
-                Contact Us
-            </a>
-        </li>
+
         <li>
             <a href="{{ url_for('logout') }}" class="center-align text-uppercase">
                 Log Out
