@@ -16,4 +16,3 @@ $(document).ready(function(){
         defaultTime: "09:00",
     });
 });
-

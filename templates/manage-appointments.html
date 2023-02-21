@@ -6,22 +6,21 @@
             <h3 class="center-align grey-text text-darken-3">
                 Manage Appointments
             </h3>
+            {% if not session.user %}
+            <p class="center-align grey-text text-darken-3 flow-text">
+                Please, <a href="{{ url_for('login') }}">Sign in</a> for booking appointments. If you don't have a user,
+                Register <a href="{{ url_for('login') }}">here</a>.
+            </p>
+            {% endif %}
         </div>
     </div>
-{% if not session.user %}
-    <div class="row">
-        <div class="col s12">
-            <p>You need to log in for accessing appointments.</p>
-        </div>
-    </div>
-{% endif %}
 {% if session.user == "admin" %}
     <ul class="collapsible">
         {% for appointment in appointments %}
             <li>
                 <div class="collapsible-header display-flex justify-space-between">
                     <i class="deep-purple-text text-darken-4 fa-solid fa-tooth"></i>
-                    <p class="appointment-reason">
+                    <p class="collapsible-reason">
                         {{ appointment.reason_for_visit }}
                     </p>
                     <span class="capitalize appointment-{{ appointment.status }}">
@@ -43,14 +42,15 @@
                     </p>
                     <p class="grey-text text-darken-2">
                         Created by:
-                        <span class="capitalize">{{ appointment.created_by }}
+                        <span class="capitalize">
+                            {{ appointment.created_by }}
                         </span>
                     </p>
                     <p class="grey-text text-darken-2">
                         Created on: {{ appointment.created_on }}
                     </p>
                     <br class="divider">
-                    <p class="grey-text text-darken-3 appointment-info">
+                    <p class="grey-text text-darken-3 collapsible-info">
                         {{ appointment.additional_information }}
                     </p>
                     <p class="grey-text text-darken-4">
@@ -78,11 +78,11 @@
 {% elif session.user != "admin" %}
     <ul class="collapsible">
         {% for appointment in appointments %}
-            {% if session.user|lower == appointment.created_by|lower %}
+            {% if session.user == appointment.created_by %}
                 <li>
                     <div class="collapsible-header display-flex justify-space-between">
                         <i class="deep-purple-text text-darken-4 fa-solid fa-tooth"></i>
-                        <p class="appointment-reason">
+                        <p class="collapsible-reason">
                             {{ appointment.reason_for_visit }}
                         </p>
                         <span class="capitalize appointment-{{ appointment.status }}">
@@ -91,13 +91,16 @@
                     </div>
                     <div class="collapsible-body">
                         <p class="capitalize appointment-{{ appointment.status }}">
-                            <span class="grey-text text-darken-2">Status:</span> {{ appointment.status }}
+                            <span class="grey-text text-darken-2">
+                                Status:
+                            </span>
+                            {{ appointment.status }}
                         </p>
                         <p class="grey-text text-darken-2">
                             Created on: {{ appointment.created_on }}
                         </p>
                         <br class="divider">
-                        <p class="grey-text text-darken-3 appointment-info">
+                        <p class="grey-text text-darken-3 collapsible-info">
                             {{ appointment.additional_information }}
                         </p>
                         <p class="grey-text text-darken-4">

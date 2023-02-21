@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row">
+        <!--    Page heading    -->
+        <div class="col s12">
+            <h3 class="center-align grey-text text-darken-3">
+                Messages
+            </h3>
+            {% if not session.user %}
+            <p class="center-align grey-text text-darken-3 flow-text">
+                Please, <a href="{{ url_for('login') }}">Sign in</a> for reading your messages.
+                If you don't have a user, Register <a href="{{ url_for('login') }}">here</a>.
+            </p>
+            {% endif %}
+        </div>
+    </div>
+    <ul class="collapsible">
+        {% for message in messages %}
+            {% if session.user == message.sent_to %}
+            <li>
+                <div class="collapsible-header display-flex justify-space-between">
+                    <i class="deep-purple-text text-darken-4 fa-solid fa-envelope"></i>
+                    <p class="capitalize">
+                        {{ message.reason_for_contact }}
+                    </p>
+                    <span class="capitalize">
+                        {{ message.sent_by }}
+                    </span>
+                </div>
+                <div class="collapsible-body">
+                    <a href="{{ url_for('delete_message', message_id=message._id) }}">
+                        <i class="grey-text text-darken-4 fa-solid fa-trash-can right admin-icon"></i>
+                    </a>
+                    <p class="grey-text text-darken-2">
+                        Sent by:
+                        <span class="capitalize">
+                            {{ message.first_name }} {{ message.last_name }} ({{ message.sent_by }})
+                        </span>
+                    </p>
+                    <p class="grey-text text-darken-2">
+                        Sent on: {{ message.sent_on }}
+                    </p>
+                    <br class="divider">
+                    <p class="grey-text text-darken-3 appointment-info">
+                        {{ message.message }}
+                    </p>
+                </div>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}
+

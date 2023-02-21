@@ -87,6 +87,7 @@ def contact():
 
             message_from_user = {
                 "sent_by": session["user"],
+                "sent_to": "admin",
                 "sent_on": current_date,
                 "first_name": request.form.get("first_name"),
                 "last_name": request.form.get("last_name"),
@@ -117,12 +118,25 @@ def format_date(datetime_string):
     return formatted_datetime.strftime("%d %B, %Y")
 
 
-@app.route("/messages")
-def messages():
-    if session["user"]:
-        return render_template("profile.html", username=session["user"])
+@app.route("/profile/<username>/messages")
+def messages(username):
+    messages = list(mongo.db.messages.find())
 
-    return redirect(url_for("login"))
+    formatted_messages = []
+
+    for message in messages:
+        formatted_message = message
+        formatted_message["sent_on"] = format_date(formatted_message["sent_on"])
+        formatted_messages.append(formatted_message)
+
+    return render_template("messages.html", username=session["user"], messages=formatted_messages)
+
+
+@app.route("/delete-message/<message_id>")
+def delete_message(message_id):
+    mongo.db.messages.delete_one({"_id": ObjectId(message_id)})
+    flash("Message deleted successfully.")
+    return redirect(url_for("messages", username=session["user"]))
 
 
 @app.route("/manage-appointments")

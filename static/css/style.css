@@ -140,11 +140,11 @@ img {
     color: #ffab00;
 }
 
-.appointment-reason {
+.collapsible-reason {
     font-size: 1.15em;
 }
 
-.appointment-info {
+.collapsible-info {
     margin-bottom: 2rem;
     font-size: 1.5em;
 }

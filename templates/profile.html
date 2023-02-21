@@ -9,9 +9,10 @@
             </h3>
         </div>
     </div>
+    <!--    Messages card    -->
     <div class="row">
         <div class="col s12 m4">
-            <a href="{{ url_for('manage_appointments') }}">
+            <a href="{{ url_for('messages', username=session['user']) }}">
                 <div class="card grow">
                     <div class="card-image">
                         <img src="{{ url_for('static',filename='images/profile/messages.jpg') }}">
@@ -27,6 +28,7 @@
                 </div>
             </a>
         </div>
+        <!--    Manage Appointments card    -->
         <div class="col s12 m4">
             <a href="{{ url_for('manage_appointments') }}">
                 <div class="card grow">
@@ -44,6 +46,8 @@
                 </div>
             </a>
         </div>
+        {% if session.user != "admin" %}
+        <!--    Book an Appointment card    -->
         <div class="col s12 m4">
             <a href="{{ url_for('book_appointment') }}">
                 <div class="card grow">
@@ -61,6 +65,7 @@
                 </div>
             </a>
         </div>
+        {% endif %}
 
     </div>
 
