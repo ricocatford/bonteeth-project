@@ -15,18 +15,12 @@
 <header>
     <!--    Top navbar    -->
     <nav>
-        <div class="nav-wrapper deep-purple darken-4">
-            <i class="fa-solid fa-tooth grey-text text-lighten-2 hide-on-med-and-down brand-logo-icon"></i>
+        <div class="nav-wrapper deep-purple">
             <a href="{{ url_for('home') }}" class="brand-logo">BonTeeth</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right">
                 <i class="fa-solid fa-bars"></i>
             </a>
             <ul class="right hide-on-med-and-down">
-                <li>
-                    <a href="{{ url_for('home') }}" class="center-align text-uppercase">
-                        Home
-                    </a>
-                </li>
                 {% if session.user %}
                     {% if session.user and session.user != "admin" %}
                         <li>
@@ -62,6 +56,11 @@
                 </li>
                 {% else %}
                 <li>
+                    <a href="{{ url_for('home') }}" class="center-align text-uppercase">
+                        Home
+                    </a>
+                </li>
+                <li>
                     <a href="{{ url_for('contact_us') }}" class="center-align text-uppercase">
                         Contact Us
                     </a>
@@ -86,11 +85,7 @@
                 Dental Solutions
             </h5>
         </li>
-        <li>
-            <a href="{{ url_for('home') }}" class="center-align text-uppercase">
-                Home
-            </a>
-        </li>
+
         {% if session.user %}
             {% if session.user and session.user != "admin" %}
                 <li>
@@ -126,6 +121,11 @@
             </a>
         </li>
         {% else %}
+        <li>
+            <a href="{{ url_for('home') }}" class="center-align text-uppercase">
+                Home
+            </a>
+        </li>
         <li>
             <a href="{{ url_for('contact_us') }}" class="center-align text-uppercase">
                 Contact Us

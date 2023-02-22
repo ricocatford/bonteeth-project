@@ -1,8 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="hero-container"></div>
+    <div class="hero-background-img"></div>
         <div class="row">
+            {% if session.user %}
+            <div class="col s12 hero-headings-wrapper">
+                <h1 class="white-text center-align text-black-shadow hide-on-small-only">
+                    We care about your smile!
+                </h1>
+                <h4 class="white-text center-align text-black-shadow hero-subheading">
+                    Registered users get 50% off their first appointment.
+                </h4>
+            </div>
+            {% else %}
             <div class="col s12 m6 hero-headings-wrapper">
                 <h1 class="white-text center-align text-black-shadow hide-on-small-only">
                     We care about your smile!
@@ -11,47 +21,49 @@
                     Register now and get 50% off your first appointment.
                 </h4>
             </div>
-        <form class="col s12 m4 offset-m1 hero-form-register" method="POST" action="{{ url_for('register') }}">
-            <div class="card-panel">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="deep-purple-text text-lighten-4 prefix fa-solid fa-envelope"></i>
-                        <input id="email_address" name="email_address" type="email" class="validate" required>
-                        <label for="email_address">Email Address</label>
+            <form class="col s12 m4 offset-m1 hero-form-register" method="POST" action="{{ url_for('register') }}">
+                <div class="card-panel">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="prefix fa-solid fa-envelope"></i>
+                            <input id="email_address" name="email_address" type="email" class="validate" required>
+                            <label for="email_address">Email Address</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="prefix fa-solid fa-user-plus"></i>
+                            <input id="username" name="username" type="text" class="validate tooltipped"
+                                   data-position="top" data-tooltip="Can contain: a-z, A-Z, 0-9." minlength="5"
+                                   maxlength="16" pattern="^[a-zA-Z0-9]{5,16}$" required>
+                            <label for="username">Username</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="prefix fa-solid fa-lock"></i>
+                            <input id="password" name="password" type="password" class="validate tooltipped"
+                                   data-position="top"
+                                   data-tooltip="Can contain: a-z, A-Z, 0-9. Minimum 8 characters, maximum 16."
+                                   minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]{8,16}$" required>
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="submit"
+                                class="col s12 m6 offset-m3 waves-effect waves-light btn-large deep-purple">
+                            Register
+                        </button>
+                    </div>
+                    <div class="row">
+                        <p class="center-align">
+                            Already have an account?
+                            <a href="{{ url_for('login') }}" class="deep-purple-text">Sign in</a>
+                        </p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="deep-purple-text text-lighten-4 prefix fa-solid fa-user-plus"></i>
-                        <input id="username" name="username" type="text" class="validate tooltipped"
-                               data-position="top" data-tooltip="Can contain: a-z, A-Z, 0-9." minlength="5"
-                               maxlength="16" pattern="^[a-zA-Z0-9]{5,16}$" required>
-                        <label for="username">Username</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="deep-purple-text text-lighten-4 prefix fa-solid fa-lock"></i>
-                        <input id="password" name="password" type="password" class="validate tooltipped"
-                               data-position="top"
-                               data-tooltip="Can contain: a-z, A-Z, 0-9. Minimum 8 characters, maximum 16."
-                               minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]{8,16}$" required>
-                        <label for="password">Password</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <button type="submit"
-                            class="col s12 m6 offset-m3 waves-effect waves-light btn-large deep-purple">
-                        Register
-                    </button>
-                </div>
-                <div class="row">
-                    <p class="center-align">
-                        Already have an account? <a href="{{ url_for('login') }}" class="deep-purple-text">Sign in</a>
-                    </p>
-                </div>
-            </div>
-        </form>
+            </form>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
