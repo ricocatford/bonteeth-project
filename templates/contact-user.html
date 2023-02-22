@@ -4,46 +4,15 @@
         <!--    Page heading    -->
         <div class="col s12">
             <h3 class="center-align grey-text text-darken-3">
-                Contact Us
+                Contact User
             </h3>
-            {% if session.user %}
-            <p class="center-align grey-text text-darken-3 flow-text">
-                Do you have any enquiry? Please, let us know by filling up the form below.
-            </p>
-            {% else %}
-            <p class="center-align grey-text text-darken-3 flow-text">
-                Please, <a href="{{ url_for('login') }}">Sign in</a> for contacting us. If you don't have a user,
-                Register <a href="{{ url_for('login') }}">here</a>.
-            </p>
-            {% endif %}
         </div>
     </div>
-{% if session.user %}
+{% if session.user == "admin" %}
     <div class="row">
-        <form class="col s12" method="POST" action="{{ url_for('contact_us') }}">
+        <form class="col s12" method="POST"
+              action="{{ url_for('contact_user', appointment_id=appointment._id) }}">
             <div class="row">
-                <div class="input-field col s12 m4">
-                    <i class="fa-solid fa-user prefix"></i>
-                    <input id="first_name"
-                           name="first_name"
-                           type="text"
-                           class="validate"
-                           required>
-                    <label for="first_name">
-                        First Name
-                    </label>
-                </div>
-                <div class="input-field col s12 m4">
-                    <i class="fa-solid fa-users prefix"></i>
-                    <input id="last_name"
-                           name="last_name"
-                           type="text"
-                           class="validate"
-                           required>
-                    <label for="last_name">
-                        Last Name
-                    </label>
-                </div>
                 <div class="input-field col s12 m4">
                     <i class="fa-solid fa-magnifying-glass prefix"></i>
                     <select id="reason_for_contact"

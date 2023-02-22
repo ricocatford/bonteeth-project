@@ -30,7 +30,7 @@
                 {% if session.user %}
                     {% if session.user and session.user != "admin" %}
                         <li>
-                            <a href="{{ url_for('contact') }}" class="center-align text-uppercase">
+                            <a href="{{ url_for('contact_us') }}" class="center-align text-uppercase">
                                 Contact Us
                             </a>
                         </li>
@@ -62,7 +62,7 @@
                 </li>
                 {% else %}
                 <li>
-                    <a href="{{ url_for('contact') }}" class="center-align text-uppercase">
+                    <a href="{{ url_for('contact_us') }}" class="center-align text-uppercase">
                         Contact Us
                     </a>
                 </li>
@@ -94,7 +94,7 @@
         {% if session.user %}
             {% if session.user and session.user != "admin" %}
                 <li>
-                    <a href="{{ url_for('contact') }}" class="center-align text-uppercase">
+                    <a href="{{ url_for('contact_us') }}" class="center-align text-uppercase">
                         Contact Us
                     </a>
                 </li>
@@ -127,7 +127,7 @@
         </li>
         {% else %}
         <li>
-            <a href="{{ url_for('contact') }}" class="center-align text-uppercase">
+            <a href="{{ url_for('contact_us') }}" class="center-align text-uppercase">
                 Contact Us
             </a>
         </li>

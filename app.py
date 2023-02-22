@@ -77,7 +77,7 @@ def logout():
 
 
 @app.route("/contact-us", methods=["GET", "POST"])
-def contact():
+def contact_us():
     if request.method == "POST":
 
         today = date.today()
@@ -100,6 +100,34 @@ def contact():
             return redirect(url_for("profile", username=session["user"]))
 
     return render_template("contact-us.html")
+
+
+@app.route("/contact-user/<appointment_id>", methods=["GET", "POST"])
+def contact_user(appointment_id):
+    appointment = mongo.db.appointments.find_one({"_id": ObjectId(appointment_id)})
+    user = appointment["created_by"]
+
+    if request.method == "POST":
+
+        today = date.today()
+        current_date = today.strftime("%Y-%m-%d")
+
+
+        message_from_admin = {
+            "sent_by": session["user"],
+            "sent_to": user,
+            "sent_on": current_date,
+            "first_name": "bonTeeth",
+            "last_name": "staff",
+            "reason_for_contact": request.form.get("reason_for_contact"),
+            "message": request.form.get("message")
+        }
+
+        mongo.db.messages.insert_one(message_from_admin)
+        flash("Message sent successfully!")
+        return redirect(url_for("profile", username=session["user"]))
+
+    return render_template("contact-user.html", appointment=appointment)
 
 
 @app.route("/profile/<username>")

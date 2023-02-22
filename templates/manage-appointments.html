@@ -31,7 +31,7 @@
                     <a href="{{ url_for('delete_appointment', appointment_id=appointment._id) }}">
                         <i class="grey-text text-darken-4 fa-solid fa-trash-can right admin-icon"></i>
                     </a>
-                    <a href="">
+                    <a href="{{ url_for('contact_user', appointment_id=appointment._id) }}">
                         <i class="grey-text text-darken-4 fa-solid fa-envelope right admin-icon"></i>
                     </a>
                     <p class="grey-text text-darken-2">
