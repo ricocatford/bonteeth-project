@@ -23,7 +23,6 @@ def home():
     return render_template("index.html")
 
 
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -113,7 +112,6 @@ def contact_user(appointment_id):
         today = date.today()
         current_date = today.strftime("%Y-%m-%d")
 
-
         message_from_admin = {
             "sent_by": session["user"],
             "sent_to": user,
@@ -137,7 +135,7 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html" , username=username)
+        return render_template("profile.html", username=username)
 
     return redirect(url_for("login"))
 
@@ -227,6 +225,7 @@ def edit_appointment(appointment_id):
     reasons = mongo.db.reason_for_visit.find().sort("reason", 1)
     return render_template("edit-appointment.html", appointment=appointment, reasons=reasons)
 
+
 @app.route("/cancel-appointment/<appointment_id>")
 def cancel_appointment(appointment_id):
     cancelled_appointment = {
@@ -265,6 +264,7 @@ def delete_appointment(appointment_id):
     mongo.db.appointments.delete_one({"_id": ObjectId(appointment_id)})
     flash("Appointment deleted successfully.")
     return redirect(url_for("manage_appointments"))
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
