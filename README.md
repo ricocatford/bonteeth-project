@@ -217,4 +217,4 @@ I have deployed this website using Heroku platform following these steps:
 - Once all this was set up, App started running all OK.
 
 ## 9. Testing
-You can find all the testing [here](https://link.com).
+You can find all the testing [here](https://github.com/ricocatford/bonteeth-project/blob/master/TESTING.md).
