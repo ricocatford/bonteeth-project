@@ -170,7 +170,7 @@ Website/App consists of ten pages, where some of them are even accessible by non
 
 ## 7. Database Structure
 ### MongoDB
-I have chosen to use Non-Relational Database for this project, also known as NoSQL. Specifically I'm using MongoDB as mentioned above, it's very quick and reliable, and also easy to understand.
+I have chosen to use Non-Relational Database for this project, also known as NoSQL. Specifically I'm using MongoDB as mentioned above.
 
 ### Database Schema
 I have used four different collections in my Database, each of them are followed by an example for showcasing how data is stored:
