@@ -129,14 +129,14 @@ Website/App consists of ten pages, where some of them are even accessible by non
 
 #### **Admin features**
 - Managing system for appointments: accept, reject or delete appointments. Can see all appointments.
-- Messaging system for reaching customers.
+- Messaging system for reaching customers when an appointment is booked. Can also delete the messages.
 
 ![Admin manage appointments features](static/images/readme/admin-manage-appointments.png)
 
 #### **Registered Users features**
 - Booking system for appointments.
 - Managing system for appointments: edit or cancel appointments. Can see only personal requested appointments.
-- Messaging system for reaching staff.
+- Messaging system for reaching staff through Contact Us page.
 
 ![Users manage appointments features](static/images/readme/users-manage-appointments.png)
 
@@ -204,6 +204,9 @@ I have used four different collections in my Database, each of them are followed
     username: "john"
     password: "sha256-encryption"
 ```
+
+### Password storage
+I have used Werkzeug library that comes with Flask for encrypting passwords in a sha256 encryption before storing then into the DBMS.
 
 ## 8. Installation, Development and Deployment
 ### Installation and Development
