@@ -2,7 +2,7 @@
 ![Devices display](static/images/readme/devices_view.jpg)
 
 ## Table of Contents
-- BonTeeth: Appointment Booking System
+- BonTeeth: Appointment Booking System.
   - [Table of Contents](#table-of-contents)
   - [1. Description](#1-description)
   - [2. Live project](#2-live-project)
