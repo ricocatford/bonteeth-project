@@ -154,6 +154,10 @@ img {
     margin-top: 2rem;
 }
 
+.footer-hours {
+    max-width: 450px;
+}
+
 .footer-social-icon {
     font-size: 1.5em;
 }

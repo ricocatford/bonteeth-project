@@ -169,22 +169,45 @@
 <footer class="page-footer grey darken-3">
     <div class="container">
         <div class="row">
-            <div class="col l6 s12">
+            <div class="col l4 s12">
                 <h5 class="white-text">Sitemap</h5>
                 <ul>
+                    {% if not session.user %}
                     <li>
-                        <a href="#" class="white-text">
+                        <a href="{{ url_for('contact_us') }}" class="white-text">
                             Contact Us
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="white-text">
+                        <a href="{{ url_for('register') }}" class="white-text">
+                            Register
+                        </a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{{ url_for('contact_us') }}" class="white-text">
+                            Contact Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('book_appointment') }}" class="white-text">
                             Book an Appointment
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ url_for('manage_appointments') }}" class="white-text">
+                            Manage Appointments
+                        </a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
-            <div class="col l4 offset-l2 s12 m8">
+            <div class="col l4 s12 footer-info">
+                <h5 class="white-text">BonTeeth Dental Practice</h5>
+                <p class="white-text">8-10 Willow Road</p>
+                <p class="white-text">Streatham SW17 8ED</p>
+            </div>
+            <div class="col l4 s12 footer-hours">
                 <h5 class="white-text">Opening Hours</h5>
                 <ul>
                     <li>
@@ -261,7 +284,7 @@
             </div>
         </div>
     </div>
-<!--    Footer copyright   -->
+<!--    Footer copyright    -->
     <div class="footer-copyright grey darken-4">
         <div class="container white-text text-lighten-3">
             © 2023 BonTeeth
@@ -277,7 +300,7 @@
         </div>
     </div>
 </footer>
-
+<!--    Scripts    -->
 <script
         src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="

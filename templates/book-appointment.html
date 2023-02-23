@@ -6,11 +6,19 @@
             <h3 class="center-align grey-text text-darken-3">
                 Book an Appointment
             </h3>
+            {% if not session.user %}
+            <p class="center-align grey-text text-darken-3 flow-text">
+                Please, <a href="{{ url_for('login') }}">Sign in</a> for booking appointments. If you don't have a user,
+                Register <a href="{{ url_for('login') }}">here</a>.
+            </p>
+            {% else %}
             <p class="center-align grey-text text-darken-3 flow-text hide-on-small-only">
                 Do you want to book an appointment with us? Let us know by filling up this form.
             </p>
+            {% endif %}
         </div>
     </div>
+{% if session.user %}
     <div class="row">
         <form class="col s12" method="POST" action="{{ url_for('book_appointment') }}">
             <div class="row">
@@ -73,4 +81,5 @@
             </div>
         </form>
     </div>
+{% endif %}
 {% endblock %}
