@@ -89,7 +89,6 @@ As a first time user I would like to see:
 As a returning user I would like to see:
 - System for contacting dental practice.
 - Manage my appointments: cancel or edit them.
-- 
 
 #### **Website owners**
 As an owner I would like to have:

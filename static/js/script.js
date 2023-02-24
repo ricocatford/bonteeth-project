@@ -15,8 +15,4 @@ $(document).ready(function(){
     $(".timepicker").timepicker({
         defaultTime: "09:00",
     });
-
-    $('.carousel.carousel-slider').carousel({
-        fullWidth: true
-    });
 });

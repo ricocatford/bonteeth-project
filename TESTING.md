@@ -1,5 +1,17 @@
 # Testing
 
+## Table of Contents
+- [Testing](#testing)
+  - [Table of Contents](#table-of-contents)
+  - [1. Functionality](#1-functionality)
+  - [2. Performance](#2-performance)
+  - [3. Code validation](#3-code-validation)
+    - [HTML validator](#html-validator)
+    - [CSS validator](#css-validator)
+    - [PyCharm linter](#pycharm-linter)
+  - [4. Bug fixes](#4-bug-fixes)
+
+
 ## 1. Functionality
 I've performed regular manual tests throughout development for the usability and performance of the App. No problems found so far.
 
@@ -28,10 +40,10 @@ Before releasing last version of this website, all warnings and errors found in 
 ![PyCharm linter report](static/images/testing/pycharm-report.png)
 
 ## 4. Bug fixes
-The only thing I really needed to fix and was not a real bug, was displaying the date in a human-friendly way. Since I was using ``date.today()`` built-in Python function to store the "created_on" field for appointments and "sent_on" for messages and the syntax goes like: 2023-01-01.Then I thought it might be confusing for the user to guess what was day or month, I then decided to implement this function in order to solve this issue:
+The only thing I really needed to fix and was not a real bug, was displaying the date in a human-friendly way. Since I was using ``date.today()``, built-in Python function to store the "created_on" field for appointments and "sent_on" for messages and the format goes like: 2023-01-01. Then I thought it might be confusing for the user to guess what was day or month, therefore I decided to implement this function in order to solve this issue:
 ```
 def format_date(datetime_string):
     formatted_datetime = datetime.strptime(datetime_string, "%Y-%m-%d")
     return formatted_datetime.strftime("%d %B, %Y")
 ```
-This function is used inside these two other functions ``manage_appointments()`` and ``messages()`` for rendering the time to format like: 01 January, 2023.
+This function is used inside these two other functions ``manage_appointments()`` and ``messages()`` for rendering the time to a format like: 01 January, 2023.
