@@ -239,7 +239,7 @@ def edit_appointment(appointment_id):
 
 @app.route("/cancel-appointment/<appointment_id>")
 def cancel_appointment(appointment_id):
-    # Update status of appointment to 'cancelled'
+    # Update status field to 'cancelled'
     cancelled_appointment = {
         "status": "cancelled"
     }
@@ -251,7 +251,7 @@ def cancel_appointment(appointment_id):
 
 @app.route("/accept-appointment/<appointment_id>")
 def accept_appointment(appointment_id):
-    # Update status of appointment to 'accepted'
+    # Update status field to 'accepted'
     accepted_appointment = {
         "status": "accepted"
     }
@@ -263,7 +263,7 @@ def accept_appointment(appointment_id):
 
 @app.route("/reject-appointment/<appointment_id>")
 def reject_appointment(appointment_id):
-    # Update status of appointment to 'rejected'
+    # Update status field to 'rejected'
     rejected_appointment = {
         "status": "rejected"
     }
