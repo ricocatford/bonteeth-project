@@ -15,6 +15,7 @@
         </div>
     </div>
 {% if session.user == "admin" %}
+    <!--    Appointment list for Admin user    -->
     <ul class="collapsible">
         {% for appointment in appointments %}
             <li>
@@ -76,6 +77,7 @@
         {% endfor %}
     </ul>
 {% elif session.user != "admin" %}
+    <!--    Appointment list for Regular users    -->
     <ul class="collapsible">
         {% for appointment in appointments %}
             {% if session.user == appointment.created_by %}

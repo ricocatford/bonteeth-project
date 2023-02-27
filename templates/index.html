@@ -3,6 +3,7 @@
 
     <div class="hero-background-img"></div>
         <div class="row">
+            <!--    Hero section    -->
             {% if session.user %}
             <div class="col s12 hero-headings-wrapper">
                 <h1 class="white-text center-align text-black-shadow hide-on-small-only">
@@ -21,6 +22,7 @@
                     Register now and get 50% off your first appointment.
                 </h4>
             </div>
+            <!--    Register form    -->
             <form class="col s12 m6 l4 offset-l1 hero-form-register" method="POST" action="{{ url_for('register') }}">
                 <div class="card-panel">
                     <div class="row">
