@@ -62,7 +62,7 @@ When viewport screen is 992px or smaller, Navbar element is replaced by this 'Si
 | **Hero section heading** |   Resized screen less than 600px    | Not showing anymore    |    **Pass**     |
 | **Register form**        | Filled up with new user credentials | Creates new user in DB |    **Pass**     |
 
-### Home page while in User session
+### Home page (while in User session)
 
 | **Element / Feature**       | **Test performed** | **Result**           | **Pass / Fail** |
 |:----------------------------|:------------------:|:---------------------|:---------------:|
@@ -77,16 +77,67 @@ When viewport screen is 992px or smaller, Navbar element is replaced by this 'Si
 | **Sign In link**      |      Clicked       | Goes to Log In page   |    **Pass**     |
 | **Register link**     |      Clicked       | Goes to Register page |    **Pass**     |
 
-### Contact Us page while in User session
+### Contact Us page (while in User session)
 
-| **Element / Feature** | **Test performed**  | **Result**                                         | **Pass / Fail** |
-|:----------------------|:-------------------:|:---------------------------------------------------|:---------------:|
-| **Form**              |   Sent empty form   | Does not allow it                                  |    **Pass**     |
-| **Form**              | Sent filled up form | Creates new message in DB and goes to Profile page |    **Pass**     |
+| **Element / Feature** |    **Test performed**    | **Result**                                         | **Pass / Fail** |
+|:----------------------|:------------------------:|:---------------------------------------------------|:---------------:|
+| **Form**              |     Sent empty form      | Does not allow it                                  |    **Pass**     |
+| **Form**              | Sent half-filled up form | Does not allow it                                  |    **Pass**     |
+| **Form**              |   Sent filled up form    | Creates new message in DB and goes to Profile page |    **Pass**     |
 
 ### Book Appointment page
 
+| **Element / Feature** | **Test performed** | **Result**            | **Pass / Fail** |
+|:----------------------|:------------------:|:----------------------|:---------------:|
+| **Paragraph**         |    Visited page    | Changes text content  |    **Pass**     |
+| **Sign In link**      |      Clicked       | Goes to Log In page   |    **Pass**     |
+| **Register link**     |      Clicked       | Goes to Register page |    **Pass**     |
 
+### Book Appointment page (while in User session)
+
+| **Element / Feature** |    **Test performed**    | **Result**                                             | **Pass / Fail** |
+|:----------------------|:------------------------:|:-------------------------------------------------------|:---------------:|
+| **Form**              |     Sent empty form      | Does not allow it                                      |    **Pass**     |
+| **Form**              | Sent half-filled up form | Does not allow it                                      |    **Pass**     |
+| **Form**              |   Sent filled up form    | Creates new appointment in DB and goes to Profile page |    **Pass**     |
+
+### Manage Appointments page
+
+| **Element / Feature** | **Test performed** | **Result**            | **Pass / Fail** |
+|:----------------------|:------------------:|:----------------------|:---------------:|
+| **Paragraph**         |    Visited page    | Changes text content  |    **Pass**     |
+| **Sign In link**      |      Clicked       | Goes to Log In page   |    **Pass**     |
+| **Register link**     |      Clicked       | Goes to Register page |    **Pass**     |
+
+### Manage Appointments page (while in User session)
+
+| **Element / Feature**       | **Test performed** | **Result**                                 | **Pass / Fail** |
+|:----------------------------|:------------------:|:-------------------------------------------|:---------------:|
+| **Appointment collapsible** |      Clicked       | Expands appointment content                |    **Pass**     |
+| **Cancel button**           |      Clicked       | Switches appointment status to 'Cancelled' |    **Pass**     |
+| **Edit button**             |      Clicked       | Goes to Edit Appointment page              |    **Pass**     |
+
+### Manage Appointments page (while in Admin User session)
+
+| **Element / Feature**       | **Test performed** | **Result**                                | **Pass / Fail** |
+|:----------------------------|:------------------:|:------------------------------------------|:---------------:|
+| **Appointment collapsible** |      Clicked       | Expands appointment content               |    **Pass**     |
+| **Accept button**           |      Clicked       | Switches appointment status to 'Accepted' |    **Pass**     |
+| **Reject button**           |      Clicked       | Goes to Edit Appointment page             |    **Pass**     |
+| **Envelope icon**           |      Clicked       | Goes to Contact User page                 |    **Pass**     |
+| **Trash can icon**          |      Clicked       | Deletes appointment in DB                 |    **Pass**     |
+
+### Manage Appointments page (while in Admin User session)
+
+| **Element / Feature**       | **Test performed** | **Result**                                | **Pass / Fail** |
+|:----------------------------|:------------------:|:------------------------------------------|:---------------:|
+| **Appointment collapsible** |      Clicked       | Expands appointment content               |    **Pass**     |
+| **Accept button**           |      Clicked       | Switches appointment status to 'Accepted' |    **Pass**     |
+| **Reject button**           |      Clicked       | Goes to Edit Appointment page             |    **Pass**     |
+| **Envelope icon**           |      Clicked       | Goes to Contact User page                 |    **Pass**     |
+| **Trash can icon**          |      Clicked       | Deletes appointment in DB                 |    **Pass**     |
+
+### Edit Appointment page 
 
 I also tested responsive design and performance for different browsers including all OS (Windows, Mac and Linux) without any major problems found, in these other browsers:
 - Microsoft Edge

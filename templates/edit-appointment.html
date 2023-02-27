@@ -8,6 +8,7 @@
             </h3>
         </div>
     </div>
+    {% if session.user %}
     <div class="row">
         <!--    Edit Appointment form    -->
         <form class="col s12" method="POST" action="{{ url_for('edit_appointment', appointment_id=appointment._id) }}">
@@ -83,4 +84,5 @@
             </div>
         </form>
     </div>
+    {% endif %}
 {% endblock %}
