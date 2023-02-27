@@ -13,10 +13,82 @@
 
 
 ## 1. Functionality
-I've performed regular manual tests throughout development for the usability and performance of the App. No problems found so far.
+I've performed regular manual tests throughout development for the usability and performance. Below you can find all tests performed to the different elements and features of the App. All tests were carried out in Chrome browser which is my preferred one and is still the most used nowadays.
 
-I also tested responsive design and performance for different browsers including all OS (Windows, Mac and Linux) without any major problems found, in the following browsers:
-- Chrome
+### Navbar
+
+| **Element / Feature**        | **Test performed** | **Result**                                               | **Pass / Fail** |
+|:-----------------------------|:------------------:|:---------------------------------------------------------|:---------------:|
+| **Brand logo**               |      Clicked       | Goes to Home page                                        |    **Pass**     |
+| **Contact us link**          |      Clicked       | Goes to Contact Us page                                  |    **Pass**     |
+| **Log In link**              |      Clicked       | Goes to Log In page                                      |    **Pass**     |
+| **Book Appointment link**    |      Clicked       | Goes to Book an Appointment page                         |    **Pass**     |
+| **Manage Appointments link** |      Clicked       | Goes to Manage Appointments page                         |    **Pass**     |
+| **Messages link**            |      Clicked       | Goes to Messages page                                    |    **Pass**     |
+| **Profile link**             |      Clicked       | Goes to Profile page                                     |    **Pass**     |
+| **Log Out link**             |      Clicked       | Removes user from session cookie and goes to Log In page |    **Pass**     |
+
+### Side Navbar
+When viewport screen is 992px or smaller, Navbar element is replaced by this 'Side Navbar' appearing from the right of the screen when clicking 3-bars icon.
+
+| **Element / Feature**        | **Test performed** | **Result**                                               | **Pass / Fail** |
+|:-----------------------------|:------------------:|:---------------------------------------------------------|:---------------:|
+| **Brand logo**               |      Clicked       | Goes to Home page                                        |    **Pass**     |
+| **Contact us link**          |      Clicked       | Goes to Contact Us page                                  |    **Pass**     |
+| **Log In link**              |      Clicked       | Goes to Log In page                                      |    **Pass**     |
+| **Book Appointment link**    |      Clicked       | Goes to Book an Appointment page                         |    **Pass**     |
+| **Manage Appointments link** |      Clicked       | Goes to Manage Appointments page                         |    **Pass**     |
+| **Messages link**            |      Clicked       | Goes to Messages page                                    |    **Pass**     |
+| **Profile link**             |      Clicked       | Goes to Profile page                                     |    **Pass**     |
+| **Log Out link**             |      Clicked       | Removes user from session cookie and goes to Log In page |    **Pass**     |
+
+
+### Footer
+
+| **Element / Feature**        | **Test performed** | **Result**                                      | **Pass / Fail** |
+|:-----------------------------|:------------------:|:------------------------------------------------|:---------------:|
+| **Contact us link**          |      Clicked       | Goes to Contact Us page                         |    **Pass**     |
+| **Register link**            |      Clicked       | Goes to Register page                           |    **Pass**     |
+| **Book Appointment link**    |      Clicked       | Goes to Book an Appointment page                |    **Pass**     |
+| **Manage Appointments link** |      Clicked       | Goes to Manage Appointments page                |    **Pass**     |
+| **Twitter link**             |      Clicked       | Opens up Twitter website in a new browser tab   |    **Pass**     |
+| **Instagram link**           |      Clicked       | Opens up Instagram website in a new browser tab |    **Pass**     |
+| **Facebook link**            |      Clicked       | Opens up Facebook website in a new browser tab  |    **Pass**     |
+
+### Home page
+
+| **Element / Feature**    |         **Test performed**          | **Result**             | **Pass / Fail** |
+|:-------------------------|:-----------------------------------:|:-----------------------|:---------------:|
+| **Hero section heading** |   Resized screen less than 600px    | Not showing anymore    |    **Pass**     |
+| **Register form**        | Filled up with new user credentials | Creates new user in DB |    **Pass**     |
+
+### Home page while in User session
+
+| **Element / Feature**       | **Test performed** | **Result**           | **Pass / Fail** |
+|:----------------------------|:------------------:|:---------------------|:---------------:|
+| **Hero section subheading** |    Visited page    | Changes text content |    **Pass**     |
+| **Register form**           |    Visited page    | Not showing anymore  |    **Pass**     |
+
+### Contact Us page
+
+| **Element / Feature** | **Test performed** | **Result**            | **Pass / Fail** |
+|:----------------------|:------------------:|:----------------------|:---------------:|
+| **Paragraph**         |    Visited page    | Changes text content  |    **Pass**     |
+| **Sign In link**      |      Clicked       | Goes to Log In page   |    **Pass**     |
+| **Register link**     |      Clicked       | Goes to Register page |    **Pass**     |
+
+### Contact Us page while in User session
+
+| **Element / Feature** | **Test performed**  | **Result**                                         | **Pass / Fail** |
+|:----------------------|:-------------------:|:---------------------------------------------------|:---------------:|
+| **Form**              |   Sent empty form   | Does not allow it                                  |    **Pass**     |
+| **Form**              | Sent filled up form | Creates new message in DB and goes to Profile page |    **Pass**     |
+
+### Book Appointment page
+
+
+
+I also tested responsive design and performance for different browsers including all OS (Windows, Mac and Linux) without any major problems found, in these other browsers:
 - Microsoft Edge
 - Firefox
 - Safari
