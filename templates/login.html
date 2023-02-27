@@ -6,8 +6,14 @@
             <h3 class="center-align grey-text text-darken-3">
                 Log In
             </h3>
+            {% if session.user %}
+            <p class="center-align grey-text text-darken-3 flow-text">
+                You are already logged in.
+            </p>
+            {% endif %}
         </div>
     </div>
+    {% if not session.user %}
     <div class="row">
         <!--    Log In form    -->
         <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('login') }}">
@@ -47,5 +53,5 @@
             </div>
         </form>
     </div>
-
+    {% endif %}
 {% endblock %}

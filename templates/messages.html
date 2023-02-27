@@ -6,12 +6,6 @@
             <h3 class="center-align grey-text text-darken-3">
                 Messages
             </h3>
-            {% if not session.user %}
-            <p class="center-align grey-text text-darken-3 flow-text">
-                Please, <a href="{{ url_for('login') }}">Sign in</a> for reading your messages.
-                If you don't have a user, Register <a href="{{ url_for('login') }}">here</a>.
-            </p>
-            {% endif %}
         </div>
     </div>
     <!--    Messages list    -->
