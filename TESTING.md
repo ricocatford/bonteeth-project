@@ -177,6 +177,14 @@ the screen when clicking 3-bars icon.
 | **Whole page**                  |    Visited page    | Only displays messages list matching current username session cookie |    **Pass**     |
 | **Messages collapsible (list)** |      Clicked       | Expands message content                                              |    **Pass**     |
 
+### Messages page (while in Admin User session)
+
+| **Element / Feature**           | **Test performed** | **Result**              | **Pass / Fail** |
+|:--------------------------------|:------------------:|:------------------------|:---------------:|
+| **Whole page**                  |    Visited page    | Displays all messages   |    **Pass**     |
+| **Messages collapsible (list)** |      Clicked       | Expands message content |    **Pass**     |
+| **Trash can icon**              |      Clicked       | Deletes message from DB |    **Pass**     |
+
 ### Contact User page
 
 | **Element / Feature** |               **Test performed**                | **Result**                                   | **Pass / Fail** |

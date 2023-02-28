@@ -15,7 +15,8 @@
             <a href="{{ url_for('messages', username=session['user']) }}">
                 <div class="card grow">
                     <div class="card-image">
-                        <img src="{{ url_for('static',filename='images/profile/messages.jpg') }}">
+                        <img src="{{ url_for('static',filename='images/profile/messages.jpg') }}"
+                             alt="Smiling woman">
                         <span class="card-title white-text text-pink-shadow">
                             Messages
                         </span>
@@ -33,7 +34,8 @@
             <a href="{{ url_for('manage_appointments') }}">
                 <div class="card grow">
                     <div class="card-image">
-                        <img src="{{ url_for('static',filename='images/profile/manage-appointments.jpg') }}">
+                        <img src="{{ url_for('static',filename='images/profile/manage-appointments.jpg') }}"
+                             alt="Toothbrushes in a jar">
                         <span class="card-title white-text text-pink-shadow">
                             Manage Appointments
                         </span>
@@ -51,7 +53,8 @@
             <a href="{{ url_for('book_appointment') }}">
                 <div class="card grow">
                     <div class="card-image">
-                        <img src="{{ url_for('static',filename='images/profile/book-appointment.jpg') }}">
+                        <img src="{{ url_for('static',filename='images/profile/book-appointment.jpg') }}"
+                             alt="Dentist">
                         <span class="card-title white-text text-pink-shadow">
                             Book an Appointment
                         </span>
